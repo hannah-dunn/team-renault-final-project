@@ -41,7 +41,74 @@
           ></textarea>
         </div>
         <div class="col">
-          <button type="button" class="btn btn-success btn-lg">Add Task</button>
+          <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-success btn-lg">Add Task</button>
+        </div>
+      </div>
+    </div>
+     
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Add a task</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group row">
+                <label for="inputName3" class="col-sm-2 col-form-label">Name:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputName3" placeholder="Name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputDescription3" class="col-sm-3 col-form-label">Description:</label>
+                <div class="col-sm-10">
+                  <textarea id="description" name="description" rows="4" cols="60" placeholder="Description" value>
+                  </textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputDue3" class="col-sm-3 col-form-label">Due Date:</label>
+                <div>
+                  <input type="date" class="form-control" id="inputDue3" placeholder="Due Date">
+                </div>
+              </div>
+              <!-- <div class="form-group row">   
+                <label for="inputStatus3" class="col-sm-2 col-form-label">Status:</label>
+                <div class="col-sm-10">
+                  <input type="radio" class="form-control" id="inputDue3" placeholder="Due Date">
+                </div>
+              </div> -->
+              <div>
+                <label for="status">Status:</label>
+                <select id="setStatus" name="status" class="form-control">
+                  <option value>Select Status</option>
+                  <option value="modalToDo">To Do</option>
+                  <option value="modalInProgress">In Progress</option>
+                  <option value="modalReview">Review</option>
+                  <option value="modalDone">Done</option>
+                </select>
+              </div>
+              <div>
+              <label for="team">Assigned to:</label>
+                <select id="team" name="team" class="form-control">
+                <option value="Craig">Craig</option>
+                <option value="Nicole">Nicole</option>
+                <option value="Hannah">Hannah</option>
+                <option value="Hannah">Ron</option>
+                </select>
+              </div>
+              
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Save task</button>
+          </div>
+              </form>
         </div>
       </div>
     </div>
