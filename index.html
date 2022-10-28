@@ -22,13 +22,13 @@
     <!-- <div class="container-fluid bg-primary"> -->
     <nav class="navbar navbar-light bg-primary">
       <span class="h1 text-white mb-0 h1 mx-auto">Task Manager</span>
-      <button type="button" class="btn btn-warning mr-sm-2">Login</button>
-      <button type="button" class="btn btn-success my-2 my-sm-0">
-        Register
-      </button>
+      <!-- <button type="button" class="btn btn-warning mr-sm-2">Login</button> -->
+      <!-- <button type="button" class="btn btn-success my-2 my-sm-0"> -->
+        <!-- Register -->
+      <!-- </button> -->
     </nav>
 
-    <div class="container my-5">
+    <!-- <div class="container my-5"> 
       <div class="row">
         <div class="col">
           <h2>Welcome to our Task Manager...</h2>
@@ -39,9 +39,12 @@
             id="exampleFormControlTextarea1"
             rows="3"
           ></textarea>
-        </div>
-        <div class="col">
-          <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-success btn-lg">Add Task</button>
+        </div>-->
+        <div class="jumbotron text-center">
+          <h1 class="display-4">Organize Everything</h1>
+          <p class="lead">Try out our task manager website to organize all of the tasks you and your team need to do.</p>
+          <hr class="my-4">
+          <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary btn-lg">Add Task</button>
         </div>
       </div>
     </div>
@@ -115,21 +118,145 @@
 
     <div class="container my-5">
       <div class="row">
-        <div class="col bg-primary rounded mx-2 text-white">
+        <div class="col bg-danger rounded mx-2 text-white">
           <h3>To Do</h3>
         </div>
-        <div class="col bg-primary rounded mx-2 text-white">
+        <div class="col bg-warning rounded mx-2 text-white">
           <h3>In Progress</h3>
         </div>
         <div class="col bg-primary rounded mx-2 text-white">
           <h3>Review</h3>
         </div>
-        <div class="col bg-primary rounded mx-2 text-white">
+        <div class="col bg-success rounded mx-2 text-white">
           <h3>Done</h3>
         </div>
       </div>
     </div>
 
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Name: Do basic HTML</li>
+                <li class="list-group-item">Description: Get a boilerplate and chuck it in</li>
+                <li class="list-group-item">Due Date: 31/10/22</li>
+                <li class="list-group-item">Assigned to: Hannah</li>
+              </ul>
+            </div>
+          </div> <br>
+          <div class="card">
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Name: Add CSS</li>
+                <li class="list-group-item">Description: Find some cute CSS and make pretty</li>
+                <li class="list-group-item">Due Date: 1/11/22</li>
+                <li class="list-group-item">Assigned to: Craig</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Name: Do basic HTML</li>
+                <li class="list-group-item">Description: Do basic HTML</li>
+                <li class="list-group-item">Due Date: 1/11/22</li>
+                <li class="list-group-item">Assigned to: Nicole</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Name: Do basic HTML</li>
+                <li class="list-group-item">Description: Do basic HTML</li>
+                <li class="list-group-item">Due Date: 20/10/44</li>
+                <li class="list-group-item">Assigned to: Ron</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Name: Do HTML</li>
+                <li class="list-group-item">Description: Do basic HTML Do basic HTML Do basic HTML</li>
+                <li class="list-group-item">Due Date: 11/11/11</li>
+                <li class="list-group-item">Assigned to: Craig</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  
+    <div class="container my-5">
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Build Basic HTML</h5>
+              <p class="card-text">Open the code in Visual Studio Code and chuck in a boilerplate.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Due Date: 31/10/22</li>
+              <li class="list-group-item">Status: To Do</li>
+              <li class="list-group-item">Assigned to: Hannah</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Build Basic HTML</h5>
+              <p class="card-text">Open the code in Visual Studio Code and chuck in a boilerplate.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Due Date: 31/10/22</li>
+              <li class="list-group-item">Status: To Do</li>
+              <li class="list-group-item">Assigned to: Hannah</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col mx-2">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Build Basic HTML</h5>
+              <p class="card-text">Open the code in Visual Studio Code and chuck in a boilerplate.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Due Date: 31/10/22</li>
+              <li class="list-group-item">Status: To Do</li>
+              <li class="list-group-item">Assigned to: Hannah</li>
+            </ul>
+          </div>
+        </div>
+        </div>
+        <div class="col mx-2">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Build Basic HTML</h5>
+              <p class="card-text">Open the code in Visual Studio Code and chuck in a boilerplate.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Due Date: 31/10/22</li>
+              <li class="list-group-item">Status: To Do</li>
+              <li class="list-group-item">Assigned to: Hannah</li>
+            </ul>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>-->
+
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
