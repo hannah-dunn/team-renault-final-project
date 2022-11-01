@@ -16,7 +16,7 @@
       crossorigin="anonymous"
     />
 
-    <title>Task Manager Test</title>
+    <title>Task Manager</title>
   </head>
   <body>
     <!-- <div class="container-fluid bg-primary"> -->
@@ -40,14 +40,16 @@
             rows="3"
           ></textarea>
         </div>-->
-        <div class="jumbotron text-center">
-          <h1 class="display-4">Organize Everything</h1>
-          <p class="lead">Try out our task manager website to organize all of the tasks you and your team need to do.</p>
-          <hr class="my-4">
-          <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary btn-lg">Add Task</button>
-        </div>
-      </div>
+
+    <!-- Jumbotron Banner -->
+    <div class="jumbotron text-center">
+      <h1 class="display-4">Organize Everything</h1>
+      <p class="lead">Try out our task manager website to organize all of the tasks you and your team need to do.</p>
+      <hr class="my-4">
+      <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary btn-lg">Add Task</button>
     </div>
+      <!-- </div>
+    </div> -->
      
      <!-- Modal -->
      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -62,8 +64,8 @@
           <div class="modal-body">
             <form>
               <div class="form-group row">
-                <label for="inputName3" class="col-sm-2 col-form-label">Name:</label>
-                <div class="col-sm-10">
+                <label for="inputName3" class="col-sm-3 col-form-label">Name:</label>
+                <div class="col-sm-12">
                   <input type="text" class="form-control" id="inputName3" placeholder="Name">
                 </div>
               </div>
@@ -99,23 +101,23 @@
               <div>
               <label for="team">Assigned to:</label>
                 <select id="team" name="team" class="form-control">
-                <option value="Craig">Craig</option>
-                <option value="Nicole">Nicole</option>
-                <option value="Hannah">Hannah</option>
-                <option value="Hannah">Ron</option>
+                  <option value="Craig">Craig</option>
+                  <option value="Nicole">Nicole</option>
+                  <option value="Hannah">Hannah</option>
+                  <option value="Hannah">Ron</option>
                 </select>
               </div>
-              
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Save task</button>
-          </div>
-              </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Save task</button>
+              </div>
+            </form>
         </div>
       </div>
     </div>
 
+    <!-- Task Status Headers -->
     <div class="container my-5">
       <div class="row">
         <div class="col bg-danger rounded mx-2 text-white">
@@ -133,10 +135,11 @@
       </div>
     </div>
 
+    <!-- Task Cards -->
     <div class="container">
       <div class="row">
         <div class="col">
-          <div class="card">
+          <div class="card mb-5">
             <div class="card-body">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Name: Do basic HTML</li>
@@ -145,8 +148,8 @@
                 <li class="list-group-item">Assigned to: Hannah</li>
               </ul>
             </div>
-          </div> <br>
-          <div class="card">
+          </div> 
+          <div class="card mb-5">
             <div class="card-body">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Name: Add CSS</li>
@@ -158,7 +161,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card">
+          <div class="card mb-5">
             <div class="card-body">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Name: Do basic HTML</li>
@@ -170,7 +173,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card">
+          <div class="card mb-5">
             <div class="card-body">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Name: Do basic HTML</li>
@@ -182,7 +185,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card">
+          <div class="card mb-5">
             <div class="card-body">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Name: Do HTML</li>
@@ -208,6 +211,7 @@
     <br>
     <br>
     <br>
+
     <!--  
     <div class="container my-5">
       <div class="row">
@@ -268,6 +272,18 @@
       </div>
     </div>-->
 
+    <!-- Footer -->
+    <footer class="text-center text-white fixed-bottom" style="background-color: #21081a;">
+        <!-- Grid Container -->
+        <div class="container p-1">
+        </div>
+        
+        <!-- Copyright -->
+        <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2022 Copyright:
+          <a class="text-white" href="https://idoubledareyou.com.au/">idoubledareyou.com.au</a>
+        </div>
+      </footer>
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -286,16 +302,5 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
-    <footer class="text-center text-white fixed-bottom" style="background-color: #21081a;">
-        <!-- Grid container -->
-        <div class="container p-1"></div>
-        <!-- Grid container -->
-        <!-- Copyright -->
-        <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
-          © 2022 Copyright:
-          <a class="text-white" href="https://idoubledareyou.com.au/">idoubledareyou.com.au</a>
-        </div>
-        <!-- Copyright -->
-      </footer>
   </body>
 </html>
