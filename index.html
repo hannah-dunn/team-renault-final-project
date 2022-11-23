@@ -15,18 +15,19 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link 
+      rel="stylesheet"
+      href="./css/style.css"
+    />
 
     <title>Task Manager</title>
   </head>
   <body onload=display_ct();>
-    <span id='ct' ></span>
+    
     <!-- <div class="container-fluid bg-primary"> -->
     <nav class="navbar navbar-light bg-primary">
-      <span class="h1 text-white mb-0 h1 mx-auto">Task Manager</span>
-      <!-- <button type="button" class="btn btn-warning mr-sm-2">Login</button> -->
-      <!-- <button type="button" class="btn btn-success my-2 my-sm-0"> -->
-        <!-- Register -->
-      <!-- </button> -->
+      <span class="h1" id="taskManager">Task Manager</span>
+      <h4 id="timeDate"><span id='ct'></span></h4>
     </nav>
 
     <!-- <div class="container my-5"> 
@@ -47,7 +48,6 @@
       <h1 class="display-4">Organize Everything</h1>
       <p class="lead">Try out our task manager website to organize all of the tasks you and your team need to do.</p>
       <hr class="my-4">
-      <!-- <p>Current Date and Time is <span id='date-time'></span>.</p> -->
       <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary btn-lg">Add Task</button>
     </div>
       <!-- </div>

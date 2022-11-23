@@ -1,4 +1,17 @@
-#nameError {
+
+#timeDate {
+    text-align: right;
+    -webkit-text-fill-color: aliceblue;
+}
+
+#taskManager {
+    text-align: center;
+    color: white;
+
+}
+
+
+/* #nameError {
     display: none;
     font-size: 0.8em;
   }
@@ -9,4 +22,4 @@
   
   input.invalid {
     border-color: red;
-  }
+  } */
