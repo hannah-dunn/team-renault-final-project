@@ -24,7 +24,7 @@
       <span class="h1 text-white mb-0 h1 mx-auto">Task Manager</span>
       <!-- <button type="button" class="btn btn-warning mr-sm-2">Login</button> -->
       <!-- <button type="button" class="btn btn-success my-2 my-sm-0"> -->
-        <!-- Register -->
+      <!-- Register -->
       <!-- </button> -->
     </nav>
 
@@ -44,59 +44,93 @@
     <!-- Jumbotron Banner -->
     <div class="jumbotron text-center">
       <h1 class="display-4">Organize Everything</h1>
-      <p class="lead">Try out our task manager website to organize all of the tasks you and your team need to do.</p>
-      <hr class="my-4">
-      <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary btn-lg">Add Task</button>
+      <p class="lead">
+        Try out our task manager website to organize all of the tasks you and
+        your team need to do.
+      </p>
+      <hr class="my-4" />
+      <button
+        type="button"
+        data-toggle="modal"
+        data-target="#exampleModalCenter"
+        class="btn btn-primary btn-lg"
+      >
+        Add Task
+      </button>
     </div>
-      <!-- </div>
+    <!-- </div>
     </div> -->
-     
-     <!-- Modal -->
-     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalCenterTitle">Add a task</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <form id="form">
-              
-                <!-- <label for="firstname"> First Name* </label>
-                <input type="text" name="firstname" id="firstname" />
-                <button id="submit">Submit</button>
-               -->
-                
-              
               <div class="form-group row">
-                <label for="inputName3" class="col-sm-3 col-form-label">Task:</label>
+                <label for="inputName3" class="col-sm-3 col-form-label"
+                  >Name:</label
+                >
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" id="inputName3" placeholder="Task">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputName3"
+                    placeholder="Name"
+                  />
                 </div>
-                  <span role="alert" id="nameError" aria-hidden="true">
-                    alert (`Please enter First Name`)
-                  </span>
               </div>
               <div class="form-group row">
-                <label for="inputDescription3" class="col-sm-3 col-form-label">Description:</label>
+                <label for="inputDescription3" class="col-sm-3 col-form-label"
+                  >Description:</label
+                >
                 <div class="col-sm-12">
-                  <textarea class="form-control" id="inputDescription3" placeholder="Description" rows="4" cols="60"></textarea>
+                  <textarea
+                    class="form-control"
+                    id="inputDescription3"
+                    placeholder="Description"
+                    rows="4"
+                    cols="60"
+                  ></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputDue3" class="col-form-label">Due Date:</label>
                 <div>
-                  <input type="date" class="form-control" id="inputDue3" placeholder="Due Date">
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="inputDue3"
+                    placeholder="Due Date"
+                  />
                 </div>
               </div>
+
               <!-- <div class="form-group row">   
                 <label for="inputStatus3" class="col-sm-2 col-form-label">Status:</label>
                 <div class="col-sm-10">
                   <input type="radio" class="form-control" id="inputDue3" placeholder="Due Date">
                 </div>
               </div> -->
+
               <div>
                 <label for="status">Status:</label>
                 <select id="setStatus" name="status" class="form-control">
@@ -107,9 +141,9 @@
                   <option value="modalDone">Done</option>
                 </select>
               </div>
-              <br>
+              <br />
               <div>
-              <label for="team">Assigned to:</label>
+                <label for="team">Assigned to:</label>
                 <select id="team" name="team" class="form-control">
                   <option value="Craig">Craig</option>
                   <option value="Nicole">Nicole</option>
@@ -117,12 +151,24 @@
                   <option value="Hannah">Ron</option>
                 </select>
               </div>
-              </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Save task</button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-dismiss="modal"
+                >
+                  Save task
+                </button>
               </div>
             </form>
+          </div>
         </div>
       </div>
     </div>
@@ -131,16 +177,16 @@
     <div class="container my-5">
       <div class="row">
         <div class="col bg-danger rounded mx-2 text-white">
-          <h3 style="text-align:center">To Do</h3>
+          <h3 style="text-align: center">To Do</h3>
         </div>
         <div class="col bg-warning rounded mx-2 text-white">
-          <h3 style="text-align:center">In Progress</h3>
+          <h3 style="text-align: center">In Progress</h3>
         </div>
         <div class="col bg-primary rounded mx-2 text-white">
-          <h3 style="text-align:center">Review</h3>
+          <h3 style="text-align: center">Review</h3>
         </div>
         <div class="col bg-success rounded mx-2 text-white">
-          <h3 style="text-align:center">Done</h3>
+          <h3 style="text-align: center">Done</h3>
         </div>
       </div>
     </div>
@@ -153,17 +199,21 @@
             <div class="card-body">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Name: Do basic HTML</li>
-                <li class="list-group-item">Description: Get a boilerplate and chuck it in</li>
+                <li class="list-group-item">
+                  Description: Get a boilerplate and chuck it in
+                </li>
                 <li class="list-group-item">Due Date: 31/10/22</li>
                 <li class="list-group-item">Assigned to: Hannah</li>
               </ul>
             </div>
-          </div> 
+          </div>
           <div class="card mb-5">
             <div class="card-body">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Name: Add CSS</li>
-                <li class="list-group-item">Description: Find some cute CSS and make pretty</li>
+                <li class="list-group-item">
+                  Description: Find some cute CSS and make pretty
+                </li>
                 <li class="list-group-item">Due Date: 1/11/22</li>
                 <li class="list-group-item">Assigned to: Craig</li>
               </ul>
@@ -199,7 +249,9 @@
             <div class="card-body">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Name: Do HTML</li>
-                <li class="list-group-item">Description: Do basic HTML Do basic HTML Do basic HTML</li>
+                <li class="list-group-item">
+                  Description: Do basic HTML Do basic HTML Do basic HTML
+                </li>
                 <li class="list-group-item">Due Date: 11/11/11</li>
                 <li class="list-group-item">Assigned to: Craig</li>
               </ul>
@@ -208,34 +260,37 @@
         </div>
       </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 
-  
     <!-- Footer -->
-    <footer class="text-center text-white fixed-bottom" style="background-color: #21081a;">
-        <!-- Grid Container -->
-        <div class="container p-1">
-        </div>
-        
-        <!-- Copyright -->
-        <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
-          © 2022 Copyright:
-          <a class="text-white" href="https://idoubledareyou.com.au/">idoubledareyou.com.au</a>
-        </div>
-      </footer>
-    
+    <footer
+      class="text-center text-white fixed-bottom"
+      style="background-color: #21081a"
+    >
+      <!-- Grid Container -->
+      <div class="container p-1"></div>
+
+      <!-- Copyright -->
+      <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2022 Copyright:
+        <a class="text-white" href="https://idoubledareyou.com.au/"
+          >idoubledareyou.com.au</a
+        >
+      </div>
+    </footer>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -253,8 +308,6 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
-    <script
-      src="./script.js"
-    ></script>
+    <script src="./script.js"></script>
   </body>
 </html>
