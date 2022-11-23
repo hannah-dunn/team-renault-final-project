@@ -1,25 +1,8 @@
-
 #timeDate {
     text-align: center;
-    
 }
 
 #taskManager {
     text-align: center;
     color: white;
-
 }
-
-
-/* #nameError {
-    display: none;
-    font-size: 0.8em;
-  }
-  
-  #nameError.visible {
-    display: block;
-  }
-  
-  input.invalid {
-    border-color: red;
-  } */
