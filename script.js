@@ -1,8 +1,4 @@
 
-// const dt = new Date();
-// document.getElementById('date-time').innerHTML=dt;
-
-
 function display_c(){
     let refresh=1000; // Refresh rate in milli seconds
     mytime=setTimeout('display_ct()',refresh)
