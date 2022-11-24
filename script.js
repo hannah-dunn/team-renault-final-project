@@ -28,7 +28,7 @@ function validateTaskForm() {
 
   if(validateAssignedTo.length === 0)
   alert("Please assgin to someone!");
-  if(validateName.length > 8)
+  if(validateAssignedTo.length > 8)
   alert("The AssignTo name can't be longer than 8 characters");
 
   // validate DueDate 
@@ -38,7 +38,7 @@ function validateTaskForm() {
  
   if(validateDueDate.length === 0)
   alert("Due date can't be empty!");
-  if(validateDueDate < currentDate)
+  if(validateDueDate.length != 0 && validateDueDate < currentDate)
   alert("Due data can't be later than current date!");
 }
 
