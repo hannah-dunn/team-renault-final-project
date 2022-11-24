@@ -42,7 +42,7 @@ function loadPage(){
 
         })
     }
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
   }
   fetchData()
 }
@@ -93,35 +93,32 @@ function loadPage(){
       localStorage.setItem(Object._id, Object)
     }
 
-
+      get id(){
+        return this.id
+      }
        get taskName(){
-        return this._taskName;
+        return this.taskName;
        }
        get Description(){
-        return this._Description;
+        return this.Description;
        }
        get assignedTo(){
-        return this._assignedTo;
+        return this.assignedTo;
        }
         get dueDate(){
-          return this._dueDate;
+          return this.dueDate;
         }
         get setStatus(){
-          return this._setStatus;
+          return this.setStatus;
+        }
+        get pod_name(){
+          return this.pod_name;
         }
 
-        saveTask(){
-            //    let task ={id:this._id,
-            //     taskName:this._taskName,
-            //   }
-            // window.localStorage.setItem('tasks',JSON.stringify(task))
-        }
       }
-      
 
 
-
-
+// to add cards for task 7 maybe
 
       function addItem(item){
         const itemHTML = '<div class="card" style="width: 18rem;">\n' +
