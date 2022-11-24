@@ -24,10 +24,17 @@ function display_c(){
    display_c();
  }
 
+
+
+
+
  //Add tasks
+
 
  let taskForm= document.getElementById('taskForm')
   let tasksList=[]
+
+
   window.addEventListener('load',()=>{
      tasksList=  JSON.parse( localStorage.getItem('Tasks'))
      console.log(`tasklist :${tasksList}`)
@@ -40,9 +47,9 @@ function display_c(){
            const task= new TaskManager()
            task._id=tasksList.length+1;
            task._taskName=taskForm['taskName'].value
-           task._desc=taskForm['taskDes'].value
-           task._status=taskForm['taskStatus'].value
-           task._assignTo=taskForm['assignTo'].value
+           task._Description=taskForm['taskDes'].value
+           task._setStatus=taskForm['taskStatus'].value
+           task._assignedTo=taskForm['assignTo'].value
            task._dueDate=taskForm['dueDate'].value
 
            console.log(`task name :${task._taskName}`)
@@ -54,33 +61,30 @@ function display_c(){
     
 
   class TaskManager{
-    constructor(id,taskName,desc,assignTo,dueDate,status){
-      this._id=id;
-       this._taskName=taskName;
-       this._desc=desc;
-       this._assignTo=assignTo;
-       this._dueDate=dueDate;
-       this._status=status;
-    //    this._tasks=[{id:1,
-    //   taskName:test1,
-    // desc:'test'}]
-
-
+    static id = 0
+    constructor(id,taskName,Description,assignedTo,dueDate,setStatus){
+      this._id = TaskManager.id++;
+       this._taskName = taskName;
+       this._Description = Description;
+       this._assignedTo = assignedTo;
+       this._dueDate = dueDate;
+       this._setStatus = setStatus;
+  
     }
        get taskName(){
         return this._taskName;
        }
-       get desc(){
-        return this._desc;
+       get Description(){
+        return this._Description;
        }
-       get assignTo(){
-        return this._assignTo;
+       get assignedTo(){
+        return this._assignedTo;
        }
         get dueDate(){
           return this._dueDate;
         }
-        get status(){
-          return this._status;
+        get setStatus(){
+          return this._setStatus;
         }
 
         saveTask(){
@@ -91,3 +95,32 @@ function display_c(){
         }
       }
       
+
+
+
+
+
+      function addItem(item){
+        const itemHTML = '<div class="card" style="width: 18rem;">\n' +
+            '    <img src="'+item.img +'" class="card-img-top" alt="image">\n' +
+            '    <div class="card-body">\n' +
+            '        <h5 class="card-title">'+item.name+'</h5>\n' +
+            '        <p class="card-text">'+item.description+'</p>\n' +
+            '        <a href="#" class="btn btn-primary">Add</a>\n' +
+            '    </div>\n' +
+            '</div>\n' +
+            '<br/>';
+        const itemsContainer = document.getElementById("form");
+        itemsContainer.innerHTML += itemHTML;
+    }
+    
+    addItem({'name':'juice',
+        'img':'https://www.gs1india.org/media/Juice_pack.jpg',
+        'description':'Orange and Apple juice fresh and delicious'});
+    
+    addItem({'name':'Tayto',
+        'img':'https://www.irishtimes.com/polopoly_fs/1.4078148!/image/image.jpg',
+        'description':'Cheese & Onion Chips'})
+
+
+
