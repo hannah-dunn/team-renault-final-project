@@ -116,6 +116,51 @@ function loadPage(){
         }
 
       }
+      set taskName(newTaskName){
+        this.taskName=newTaskName
+     }
+     set Description(newDescription){
+         this.Description=newDescription
+     }
+     set assignedTo(newAssignedTo){
+         this.assignedTo=newAssignedTo
+     }
+     set dueDate(newDueDate){
+         this.dueDate=newDueDate
+     }
+     set setsStatus(newStatus){
+         this.setStatus=newSetStatus
+     }
+     class TaskManagers{
+         // Each task object should be added to and stored in an array variable
+         constructor(){
+             this.taskMangers=[];
+         }
+     // Add Task -> a task to existing Tasks List
+     addTask(taskName,taskDes,assignTo,dueDate,taskSt,commentIn){
+         let task=new TaskManger(taskName,taskDes,assignTo,dueDate,taskSt,commentIn);
+     this.taskMangers.push(task);
+     return task;
+     }
+     // Get Tasks -> returns the list of ALL tasks
+     getAllTasks(){
+         return this.taskMangers
+     }
+     // Get all Tasks with a given status -> returns a list of all tasks where a status equal to the status passes as an argument
+     getTasksWithStatus(status){
+         let filterTask=this.taskMangers.filter(task=>task.status===status)
+         return filterTask
+     }
+     }
+     //Add a card once created with all the details of task.
+     btnSubmit.addEventListener('click',(e)=>{
+     //Form fields data validation
+        if(validate()){
+         //call render method to add new tasks
+          render();
+        }
+     e.preventDefault();
+         })
 
 
 // to add cards for task 7 maybe
