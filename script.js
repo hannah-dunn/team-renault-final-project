@@ -31,6 +31,26 @@ function display_c(){
  //Add tasks
 
 
+window.addEventListener("load", ()=>loadPage());
+
+function loadPage(){
+  function fetchData(){
+    fetch("https://jwd09-task-api.herokuapp.com")
+    .then(resp => resp.json())
+    .then(data => {
+        data.map(eachObject => {
+
+        })
+    }
+    .catch(err => console.log(err))
+  }
+  fetchData()
+}
+
+
+
+
+
  let taskForm= document.getElementById('taskForm')
   let tasksList=[]
 
@@ -44,13 +64,7 @@ function display_c(){
              console.log(taskForm['taskName'].value)
         const formData=new FormData(taskForm);
         console.log(`formdata:${formData}`)
-           const task= new TaskManager()
-           task._id=tasksList.length+1;
-           task._taskName=taskForm['taskName'].value
-           task._Description=taskForm['taskDes'].value
-           task._setStatus=taskForm['taskStatus'].value
-           task._assignedTo=taskForm['assignTo'].value
-           task._dueDate=taskForm['dueDate'].value
+           
 
            console.log(`task name :${task._taskName}`)
            console.log(task)
@@ -62,13 +76,14 @@ function display_c(){
 
   class TaskManager{
     static id = 0
-    constructor(id,taskName,Description,assignedTo,dueDate,setStatus){
-      this._id = TaskManager.id++;
-       this._taskName = taskName;
-       this._Description = Description;
-       this._assignedTo = assignedTo;
-       this._dueDate = dueDate;
-       this._setStatus = setStatus;
+    constructor(id,taskName,Description,assignedTo,dueDate,setStatus, pod_name){
+      this.id = TaskManager.id++;
+       this.taskName = taskName;
+       this.Description = Description;
+       this.assignedTo = assignedTo;
+       this.dueDate = dueDate;
+       this.setStatus = setStatus;
+       this.pod_name = pod_name;
       const saveToLocal = () => {
         localStorage.setItem(this._id, this)
       }
@@ -78,7 +93,7 @@ function display_c(){
       localStorage.setItem(Object._id, Object)
     }
 
-    
+
        get taskName(){
         return this._taskName;
        }
