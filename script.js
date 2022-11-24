@@ -41,7 +41,7 @@ function loadPage(){
         data.map(eachObject => {
 
         })
-    }
+    })
     .catch(err => console.log(err));
   }
   fetchData()
