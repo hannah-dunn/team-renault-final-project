@@ -69,8 +69,16 @@ function display_c(){
        this._assignedTo = assignedTo;
        this._dueDate = dueDate;
        this._setStatus = setStatus;
-  
+      const saveToLocal = () => {
+        localStorage.setItem(this._id, this)
+      }
     }
+
+    static saveToLocal(Object){
+      localStorage.setItem(Object._id, Object)
+    }
+
+    
        get taskName(){
         return this._taskName;
        }
