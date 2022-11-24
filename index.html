@@ -74,8 +74,8 @@
             <form id="form">
               <div class="form-group row">
                 <label for="taskName" class="col-sm-3 col-form-label"
-                  >Task Name:</label
-                >
+                  >Task Name:</label>
+                
                 <div class="col-sm-12">
                   <input
                     type="text"
@@ -92,7 +92,7 @@
                 <div class="col-sm-12">
                   <textarea
                     class="form-control"
-                    id="Description"
+                    id="description"
                     placeholder="Description"
                     rows="4"
                     cols="60"
@@ -103,10 +103,11 @@
                 <label for="dueDate" class="col-form-label">Due Date:</label>
                 <div>
                   <input
-                    type="text"
+                    type="date"
                     class="form-control"
                     id="dueDate"
                     placeholder="Due Date"
+                    min="2022-01-01"
                   />
                 </div>
               </div>
@@ -149,6 +150,7 @@
                   type="button"
                   class="btn btn-primary"
                   data-dismiss="modal"
+                  onclick="validateTaskForm()"
                 >
                   Save task
                 </button>
@@ -246,6 +248,7 @@
         </div>
       </div>
     </div>
+
     <br />
     <br />
     <br />
