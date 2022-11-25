@@ -88,7 +88,6 @@ function loadPage(){
         localStorage.setItem(this._id, this)
       }
     }
-
     static saveToLocal(Object){
       localStorage.setItem(Object._id, Object)
     }
@@ -114,23 +113,7 @@ function loadPage(){
         get pod_name(){
           return this.pod_name;
         }
-
       }
-      set taskName(newTaskName){
-        this.taskName=newTaskName
-     }
-     set Description(newDescription){
-         this.Description=newDescription
-     }
-     set assignedTo(newAssignedTo){
-         this.assignedTo=newAssignedTo
-     }
-     set dueDate(newDueDate){
-         this.dueDate=newDueDate
-     }
-     set setsStatus(newStatus){
-         this.setStatus=newSetStatus
-     }
      class TaskManagers{
          // Each task object should be added to and stored in an array variable
          constructor(){
