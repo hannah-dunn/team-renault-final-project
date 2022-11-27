@@ -111,13 +111,14 @@ function loadPage(){
   }
 
   function displayTasks(){
-    const bodyContainer = document.getElementById("bodyContainer")
-   
+    const bodyContainer = document.getElementById("taskCardContainer")
+
     TaskManager.getLocalData().forEach(element => {
-      bodyContainer.appendChild(document.createElement("p")).innerHTML = `id: ${element.id}, title: ${element.title}`
+      bodyContainer.appendChild(document.createElement("p")).innerHTML = `id: ${element.id}, title: ${element.title}, description: ${element.description},
+      assigned to: ${element.assigned_to}, date: ${element.date}, status: ${element.setStatus}`
       })
     }
-   
+
 
 
 
@@ -188,29 +189,39 @@ function loadPage(){
     //      })
 
 
+
+
+
+
 // to add cards for task 7 maybe
 
-    //   function addItem(item){
-    //     const itemHTML = '<div class="card" style="width: 18rem;">\n' +
-    //         '    <img src="'+item.img +'" class="card-img-top" alt="image">\n' +
-    //         '    <div class="card-body">\n' +
-    //         '        <h5 class="card-title">'+item.name+'</h5>\n' +
-    //         '        <p class="card-text">'+item.description+'</p>\n' +
-    //         '        <a href="#" class="btn btn-primary">Add</a>\n' +
-    //         '    </div>\n' +
-    //         '</div>\n' +
-    //         '<br/>';
-    //     const itemsContainer = document.getElementById("form");
-    //     itemsContainer.innerHTML += itemHTML;
-    // }
-    
-    // addItem({'name':'juice',
-    //     'img':'https://www.gs1india.org/media/Juice_pack.jpg',
-    //     'description':'Orange and Apple juice fresh and delicious'});
-    
-    // addItem({'name':'Tayto',
-    //     'img':'https://www.irishtimes.com/polopoly_fs/1.4078148!/image/image.jpg',
-    //     'description':'Cheese & Onion Chips'})
+
+
+const createHtmlTask = (task) => {
+  return (
+    `
+          <div class="card mb-3">
+          <!-- <labtimeDivfor="">Task Name: </label> -->
+            <h5 class="card-header text-center fw-bold text-success">${task.name}</h5>
+            <div class="card-body border">
+              <div class="mb-3 ">
+              <!--  <labtimeDivclass="form-control for="">Assigned to: </label>-->
+              <textarea class="form-control" id="" cols=" 10" rows="2" placeholder="Assigned to: ${task.assignedTo}"readonly></textarea>
+            </div>
+            <div class="mb-3">
+            <!-- <labtimeDivfor="">Due Date: </label> -->
+              <textarea class="form-control" id="" cols=" 10" rows="2" placeholder="Due Date: ${task.dueDate}"readonly></textarea>
+            </div>
+            <div class="mb-3 ">
+            <!-- <labtimeDivfor="">Description:</label>-->
+              <textarea class="form-control" id="" cols=" 30" rows="3" placeholder="Description: ${task.description}"readonly></textarea>
+            </div> 
+            <!-- Edit buttons -->
+          </div>  
+         </div >  
+        `
+  )
+}
 
 
 
