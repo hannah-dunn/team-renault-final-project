@@ -2,6 +2,7 @@ const form = document.getElementById('form');
 const description = document.getElementById('description');
 const dueDate = document.getElementById('dueDate');
 const assignedTo = document.getElementById('assignedTo');
+const submit = document.getElementById("submit");
 
 // TASK - 4 - Task Form Inputs Validation 
 
@@ -108,7 +109,32 @@ function loadPage(){
       return JSON.parse(localStorage.getItem("tasks"))
     }
 
-  }
+
+    addTask(title,description,assigned_to,date,setStatus){
+      let task = new TaskManger(title,description,assigned_to,date,setStatus);
+   this.taskMangers.push(task);
+   return task;
+   }
+  // Get Tasks -> returns the list of ALL tasks
+    getAllTasks(){
+      return this.taskMangers
+    }
+  // Get all Tasks with a given status -> returns a list of all tasks where a status equal to the status passes as an argument
+    getTasksWithStatus(status){
+      let filterTask=this.taskMangers.filter(task=>task.status===status)
+      return filterTask
+   }
+
+  //Add a card once created with all the details of task.
+    submit.addEventListener('click',(e)=> {
+  //Form fields data validation
+     if(validate()){
+      //call render method to add new tasks
+       render();
+     }
+    e.preventDefault();
+      })
+    }
 
   function displayTasks(){
     const bodyContainer = document.getElementById("taskCardContainer")
@@ -118,75 +144,6 @@ function loadPage(){
       assigned to: ${element.assigned_to}, date: ${element.date}, status: ${element.setStatus}`
       })
     }
-
-
-
-
-    //   get id(){
-    //     return this.id
-    //   }
-    //    get taskName(){
-    //     return this.taskName;
-    //    }
-    //    get description(){
-    //     return this.description;
-    //    }
-    //    get assignedTo(){
-    //     return this.assignedTo;
-    //    }
-    //     get dueDate(){
-    //       return this.dueDate;
-    //     }
-    //     get setStatus(){
-    //       return this.setStatus;
-    //     }
-      
-    //   set taskName(newTaskName){
-    //     this.taskName=newTaskName
-    //  }
-    //  set description(newDescription){
-    //      this.description=newDescription
-    //  }
-    //  set assignedTo(newAssignedTo){
-    //      this.assignedTo=newAssignedTo
-    //  }
-    //  set dueDate(newDueDate){
-    //      this.dueDate=newDueDate
-    //  }
-    //  set setStatus(newSetStatus){
-    //      this.setStatus=newSetStatus
-    //  }
-    // }
-    //  class TaskManagers{
-    //      // Each task object should be added to and stored in an array variable
-    //      constructor(){
-    //          this.taskMangers=[];
-    //      }
-    //  // Add Task -> a task to existing Tasks List
-    //  addTask(taskName,taskDes,assignTo,dueDate,taskSt){
-    //      let task=new TaskManger(taskName,taskDes,assignTo,dueDate,taskSt);
-    //  this.taskMangers.push(task);
-    //  return task;
-    //  }
-    //  // Get Tasks -> returns the list of ALL tasks
-    //  getAllTasks(){
-    //      return this.taskMangers
-    //  }
-    //  // Get all Tasks with a given status -> returns a list of all tasks where a status equal to the status passes as an argument
-    //  getTasksWithStatus(status){
-    //      let filterTask=this.taskMangers.filter(task=>task.status===status)
-    //      return filterTask
-    //  }
-    //  }
-    //  //Add a card once created with all the details of task.
-    //  btnSubmit.addEventListener('click',(e)=>{
-    //  //Form fields data validation
-    //     if(validate()){
-    //      //call render method to add new tasks
-    //       render();
-    //     }
-    //  e.preventDefault();
-    //      })
 
 
 
