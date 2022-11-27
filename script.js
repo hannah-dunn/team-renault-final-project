@@ -76,17 +76,20 @@ function loadPage(){
         data.map(eachObj => {
             let newTask = new TaskManager(eachObj.id, eachObj.title, eachObj.description, eachObj.assigned_to, eachObj.date, eachObj.setStatus)
             console.log(newTask)
+            TaskManager.saveToLocal()
         })
     })
     .catch(err => console.log(err));
   }
   fetchData()
+  displayTasks()
 }
 
 
 
   class TaskManager{
     static id = 0
+    static array = []
     constructor(id,title,description,assigned_to,date,setStatus){
       this.id = TaskManager.id++;
        this.title = title;
@@ -94,15 +97,27 @@ function loadPage(){
        this.assigned_to = assigned_to;
        this.date = date;
        this.setStatus = setStatus;
-      const saveToLocal = () => {
-        localStorage.setItem(this._id, this)
-      }
+       TaskManager.array.push(this)
+      
     }
-    static saveToLocal(Object){
-      localStorage.setItem(Object._id, Object)
+    static saveToLocal(){
+      localStorage.setItem("tasks", JSON.stringify(TaskManager.array))
+    }
+
+    static getLocalData(){
+      return JSON.parse(localStorage.getItem("tasks"))
     }
 
   }
+
+  function displayTasks(){
+    const bodyContainer = document.getElementById("bodyContainer")
+   
+    TaskManager.getLocalData().forEach(element => {
+      bodyContainer.appendChild(document.createElement("p")).innerHTML = `id: ${element.id}, title: ${element.title}`
+      })
+    }
+   
 
 
 
