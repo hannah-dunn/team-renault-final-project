@@ -2,7 +2,7 @@ const form = document.getElementById('form');
 const description = document.getElementById('description');
 const dueDate = document.getElementById('dueDate');
 const assignedTo = document.getElementById('assignedTo');
-const submit = document.getElementById("submit");
+
 
 // TASK - 4 - Task Form Inputs Validation 
 
@@ -135,6 +135,9 @@ function loadPage(){
     e.preventDefault();
       })
     }
+
+
+
 
   function displayTasks(){
     const bodyContainer = document.getElementById("taskCardContainer")
