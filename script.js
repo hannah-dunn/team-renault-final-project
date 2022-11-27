@@ -110,30 +110,30 @@ function loadPage(){
     }
 
 
-    addTask(title,description,assigned_to,date,setStatus){
-      let task = new TaskManger(title,description,assigned_to,date,setStatus);
-   this.taskMangers.push(task);
-   return task;
-   }
-  // Get Tasks -> returns the list of ALL tasks
-    getAllTasks(){
-      return this.taskMangers
-    }
-  // Get all Tasks with a given status -> returns a list of all tasks where a status equal to the status passes as an argument
-    getTasksWithStatus(status){
-      let filterTask=this.taskMangers.filter(task=>task.status===status)
-      return filterTask
-   }
+  //   addTask(title,description,assigned_to,date,setStatus){
+  //     let task = new TaskManger(title,description,assigned_to,date,setStatus);
+  //  this.taskMangers.push(task);
+  //  return task;
+  //  }
+  // // Get Tasks -> returns the list of ALL tasks
+  //   getAllTasks(){
+  //     return this.taskMangers
+  //   }
+  // // Get all Tasks with a given status -> returns a list of all tasks where a status equal to the status passes as an argument
+  //   getTasksWithStatus(status){
+  //     let filterTask=this.taskMangers.filter(task=>task.status===status)
+  //     return filterTask
+  //  }
 
-  //Add a card once created with all the details of task.
-    submit.addEventListener('click',(e)=> {
-  //Form fields data validation
-     if(validate()){
-      //call render method to add new tasks
-       render();
-     }
-    e.preventDefault();
-      })
+  // //Add a card once created with all the details of task.
+  //   submit.addEventListener('click',(e)=> {
+  // //Form fields data validation
+  //    if(validate()){
+  //     //call render method to add new tasks
+  //      render();
+  //    }
+  //   e.preventDefault();
+  //     })
     }
 
 
