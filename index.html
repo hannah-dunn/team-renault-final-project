@@ -137,14 +137,15 @@
                   data-dismiss="modal">
                   Close
                 </button>
-                <button
+                <!-- <button
                   type="button"
                   class="btn btn-primary"
-                  data-dismiss="submit"
-                  onclick="validateTaskForm()">
+                  data-dismiss="modal">
                   Save task
-                </button>
+                </button> -->
+                <input type="submit" value="Submit" class="btn btn-primary">
               </div>
+              
             </form>
           </div>
         </div>
@@ -171,7 +172,7 @@
 
     <!-- Task Cards -->
     <div class="container">
-      <div class="row">
+      <div class="row" id="taskCards">
         <div class="col">
           <div class="card mb-5">
             <div class="card-body">

@@ -43,7 +43,7 @@ function validateTaskForm() {
 }
 
 
-
+//TASK 5 -- Displaying Date
 
 // Date & Time Display
 function display_c(){
@@ -74,7 +74,7 @@ function loadPage(){
     .then(resp => resp.json())
     .then(data => {
         data.map(eachObject => {
-
+            
         })
     })
     .catch(err => console.log(err));
@@ -111,14 +111,13 @@ function loadPage(){
 
   class TaskManager{
     static id = 0
-    constructor(id,taskName,Description,assignedTo,dueDate,setStatus, pod_name){
+    constructor(id,taskName,description,assignedTo,dueDate,setStatus){
       this.id = TaskManager.id++;
        this.taskName = taskName;
-       this.Description = Description;
+       this.description = description;
        this.assignedTo = assignedTo;
        this.dueDate = dueDate;
        this.setStatus = setStatus;
-       this.pod_name = pod_name;
       const saveToLocal = () => {
         localStorage.setItem(this._id, this)
       }
@@ -133,8 +132,8 @@ function loadPage(){
        get taskName(){
         return this.taskName;
        }
-       get Description(){
-        return this.Description;
+       get description(){
+        return this.description;
        }
        get assignedTo(){
         return this.assignedTo;
@@ -145,18 +144,31 @@ function loadPage(){
         get setStatus(){
           return this.setStatus;
         }
-        get pod_name(){
-          return this.pod_name;
-        }
-      }
+      
+      set taskName(newTaskName){
+        this.taskName=newTaskName
+     }
+     set description(newDescription){
+         this.description=newDescription
+     }
+     set assignedTo(newAssignedTo){
+         this.assignedTo=newAssignedTo
+     }
+     set dueDate(newDueDate){
+         this.dueDate=newDueDate
+     }
+     set setStatus(newSetStatus){
+         this.setStatus=newSetStatus
+     }
+    }
      class TaskManagers{
          // Each task object should be added to and stored in an array variable
          constructor(){
              this.taskMangers=[];
          }
      // Add Task -> a task to existing Tasks List
-     addTask(taskName,taskDes,assignTo,dueDate,taskSt,commentIn){
-         let task=new TaskManger(taskName,taskDes,assignTo,dueDate,taskSt,commentIn);
+     addTask(taskName,taskDes,assignTo,dueDate,taskSt){
+         let task=new TaskManger(taskName,taskDes,assignTo,dueDate,taskSt);
      this.taskMangers.push(task);
      return task;
      }
@@ -180,30 +192,68 @@ function loadPage(){
      e.preventDefault();
          })
 
+//Each time a new task is added, the render() method is called to display the new task.
+const render=()=>{
+  //  add task info into TaskManagers array list 
+  let task= new TaskManagers();
+  task.addTask(taskName.value,taskDes.value,assignTo.value,dueDate.value,taskSt.value,commentIn.value)
+ //show task box in HTML
+ createTaskHTML(task.getAllTasks());
+  //    reset form fields
+  document.getElementById("form").reset();
+}
+// creates a Card Layout HTML as defined on previous tasks object
+const createTaskHTML=(task)=>{
+task.forEach(element => {
+const taskHTML=` <div class="col">
+     <div class="card mb-3 bg-info m-2 task-box p-1 rounded shadow box-1 text-light" style="max-width: 18rem;">
+       <div class="card-header bg-transparent border-light"><small class="fst-italic" >
+       Due Date:${element.dueDate}</small></div>
+       <div class="card-body text-light">
+         <h5>Name: ${element.taskName}</h5>
+         <p>Description: ${element.description}</p>
+         <p>Assign To:    <select class="form-control col me-3" id="assignedTo" required="required">
+         <option>${element.assignedTo}</option>
+        
+     </select></p>
+         <div class="spinner-border text-light" role="status"> </div>
+             <span >${element.setStatus}</span>
+           
+       <div class="card-footer bg-transparent border-light">              
+           <button type="submit" class="btn btn-success shadow">Update</button>
+           <button type="submit" class="btn btn-danger shadow">Delete</button>
+       </div>
+     </div>
+   </div>`
+ const itemsContainer = document.getElementById("taskCards");
+ itemsContainer.innerHTML += taskHTML; 
+});     
+}
+
 
 // to add cards for task 7 maybe
 
-      function addItem(item){
-        const itemHTML = '<div class="card" style="width: 18rem;">\n' +
-            '    <img src="'+item.img +'" class="card-img-top" alt="image">\n' +
-            '    <div class="card-body">\n' +
-            '        <h5 class="card-title">'+item.name+'</h5>\n' +
-            '        <p class="card-text">'+item.description+'</p>\n' +
-            '        <a href="#" class="btn btn-primary">Add</a>\n' +
-            '    </div>\n' +
-            '</div>\n' +
-            '<br/>';
-        const itemsContainer = document.getElementById("form");
-        itemsContainer.innerHTML += itemHTML;
-    }
+    //   function addItem(item){
+    //     const itemHTML = '<div class="card" style="width: 18rem;">\n' +
+    //         '    <img src="'+item.img +'" class="card-img-top" alt="image">\n' +
+    //         '    <div class="card-body">\n' +
+    //         '        <h5 class="card-title">'+item.name+'</h5>\n' +
+    //         '        <p class="card-text">'+item.description+'</p>\n' +
+    //         '        <a href="#" class="btn btn-primary">Add</a>\n' +
+    //         '    </div>\n' +
+    //         '</div>\n' +
+    //         '<br/>';
+    //     const itemsContainer = document.getElementById("form");
+    //     itemsContainer.innerHTML += itemHTML;
+    // }
     
-    addItem({'name':'juice',
-        'img':'https://www.gs1india.org/media/Juice_pack.jpg',
-        'description':'Orange and Apple juice fresh and delicious'});
+    // addItem({'name':'juice',
+    //     'img':'https://www.gs1india.org/media/Juice_pack.jpg',
+    //     'description':'Orange and Apple juice fresh and delicious'});
     
-    addItem({'name':'Tayto',
-        'img':'https://www.irishtimes.com/polopoly_fs/1.4078148!/image/image.jpg',
-        'description':'Cheese & Onion Chips'})
+    // addItem({'name':'Tayto',
+    //     'img':'https://www.irishtimes.com/polopoly_fs/1.4078148!/image/image.jpg',
+    //     'description':'Cheese & Onion Chips'})
 
 
 
