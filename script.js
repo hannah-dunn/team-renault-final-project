@@ -73,8 +73,9 @@ function loadPage(){
     fetch("https://jwd09-task-api.herokuapp.com")
     .then(resp => resp.json())
     .then(data => {
+        let newTask;
         data.map(eachObj => {
-            let newTask = new TaskManager(eachObj.id, eachObj.title, eachObj.description, eachObj.assigned_to, eachObj.date, eachObj.setStatus)
+            newTask = new TaskManager(eachObj.id, eachObj.title, eachObj.description, eachObj.assigned_to, eachObj.date, eachObj.setStatus)
             console.log(newTask)
             TaskManager.saveToLocal()
         })
@@ -98,7 +99,6 @@ function loadPage(){
        this.date = date;
        this.setStatus = setStatus;
        TaskManager.array.push(this)
-      
     }
     static saveToLocal(){
       localStorage.setItem("tasks", JSON.stringify(TaskManager.array))
