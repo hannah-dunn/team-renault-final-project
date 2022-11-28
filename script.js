@@ -19,8 +19,8 @@ function validateTaskForm() {
   const validateName = document.getElementById('taskName').value;
   if(validateName.length === 0)
   alert("Please enter Name!");
-  if(validateName.length > 8)
-  alert("Name length can't be longer than 8 characters");
+  if(validateName.length < 8)
+  alert("Task name should be longer than 8 characters");
 
   // validate Description
 
@@ -28,16 +28,16 @@ function validateTaskForm() {
 
   if(validateDescription.length === 0)
   alert("Please enter Description!");
-  if(validateDescription.length > 15)
-  alert("Description can't be longer than 15 characters");
+  if(validateDescription.length < 15)
+  alert("Description should be longer than 15 characters");
 
   // validate AssignTo 
   const validateAssignedTo = document.getElementById('assignedTo').value;
 
   if(validateAssignedTo.length === 0)
   alert("Please assign to someone!");
-  if(validateAssignedTo.length > 8)
-  alert("The AssignTo name can't be longer than 8 characters");
+  if(validateAssignedTo.length < 8)
+  alert("The name of the assigned should be longer than 8 characters");
 
   // validate DueDate 
   const validateDueDate = document.getElementById('dueDate').value;
@@ -74,10 +74,11 @@ function display_c(){
  //Add tasks
 
 function loadPage(){
-  const allTasks = JSON.parse((TaskManager.getAllTasks()))
+  const allTasks = (TaskManager.getAllTasks())
   allTasks.map(task=>{
     let card = TaskManager.createHtmlCard(task)
-  })
+   console.log(task)
+  }) 
 }
 
 
@@ -95,7 +96,7 @@ function submitFunction(event){
 
   const newTask = new TaskManager(taskName, description, assignedTo, dueDate, setStatus)
   TaskManager.createHtmlCard(newTask)
-
+  console.log( )
 }
 
 
@@ -148,19 +149,9 @@ function submitFunction(event){
                              <textarea class="form-control" ${object.description}readonly></textarea>
                           </div>
                         </div>
-                        
-                        <div class="card mx-3" style="width: 18rem;">
-                        <div class="card-body">
-                          <ul class="list-group list-group-flush">
-                            <label>Task Name:</label><li class="list-group-item"${object.taskName}readonly></li>
-                            <label>Description:</label><li class="list-group-item"${object.description}readonly></li>
-                            <label>Due Date: </label><li class="list-group-item"${object.dueDate}readonly></li>
-                            <label>Assigned to: </label><li class="list-group-item"${object.assignedTo}readonly></li>
-                          </ul>
-                        </div>
-                      </div>
                     </div>`
       TaskManager.render(card)
+      console.log(    )
     }
 
     static render(card){
