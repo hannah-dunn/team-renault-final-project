@@ -1,7 +1,14 @@
+window.addEventListener("load", ()=>loadPage());
+
 const form = document.getElementById('form');
 const description = document.getElementById('description');
 const dueDate = document.getElementById('dueDate');
 const assignedTo = document.getElementById('assignedTo');
+const taskName = document.getElementById('taskName');
+const statusInput = document.getElementById('setStatus');
+const submitButton = document.getElementById('submitButton');
+
+
 
 
 // TASK - 4 - Task Form Inputs Validation 
@@ -67,37 +74,25 @@ function display_c(){
  //Add tasks
 
 
-window.addEventListener("load", ()=>loadPage());
+
 
 function loadPage(){
-  function fetchData(){
-    fetch("https://jwd09-task-api.herokuapp.com")
-    .then(resp => resp.json())
-    .then(data => {
-        let newTask;
-        data.map(eachObj => {
-            newTask = new TaskManager(eachObj.id, eachObj.title, eachObj.description, eachObj.assigned_to, eachObj.date, eachObj.setStatus)
-            console.log(newTask)
-            TaskManager.saveToLocal()
-        })
-    })
-    .catch(err => console.log(err));
-  }
-  fetchData()
-  displayTasks()
+  const allTasks = (TaskManager.getAllTasks())
+  allTasks.map(task=>{
+    let card = TaskManager.createHtmlCard(task)
+  })
 }
-
 
 
   class TaskManager{
     static id = 0
     static array = []
-    constructor(id,title,description,assigned_to,date,setStatus){
+    constructor(id,taskName,description,assignedTo,dueDate,setStatus){
       this.id = TaskManager.id++;
-       this.title = title;
+       this.taskName = taskName;
        this.description = description;
-       this.assigned_to = assigned_to;
-       this.date = date;
+       this.assigned_to = assignedTo;
+       this.dueDate = dueDate;
        this.setStatus = setStatus;
        TaskManager.array.push(this)
     }
@@ -109,79 +104,75 @@ function loadPage(){
       return JSON.parse(localStorage.getItem("tasks"))
     }
 
-
-  //   addTask(title,description,assigned_to,date,setStatus){
-  //     let task = new TaskManger(title,description,assigned_to,date,setStatus);
-  //  this.taskMangers.push(task);
-  //  return task;
-  //  }
-  // // Get Tasks -> returns the list of ALL tasks
-  //   getAllTasks(){
-  //     return this.taskMangers
-  //   }
-  // // Get all Tasks with a given status -> returns a list of all tasks where a status equal to the status passes as an argument
-  //   getTasksWithStatus(status){
-  //     let filterTask=this.taskMangers.filter(task=>task.status===status)
-  //     return filterTask
-  //  }
-
-  // //Add a card once created with all the details of task.
-  //   submit.addEventListener('click',(e)=> {
-  // //Form fields data validation
-  //    if(validate()){
-  //     //call render method to add new tasks
-  //      render();
-  //    }
-  //   e.preventDefault();
-  //     })
+    static render(object){
+      createHtmlTask(object)
     }
 
-
-
-
-  function displayTasks(){
-    const bodyContainer = document.getElementById("taskCardContainer")
-
-    TaskManager.getLocalData().forEach(element => {
-      bodyContainer.appendChild(document.createElement("p")).innerHTML = `id: ${element.id}, title: ${element.title}, description: ${element.description},
-      assigned to: ${element.assigned_to}, date: ${element.date}, status: ${element.setStatus}`
-      })
+    static getAllTasks(){
+      return JSON.parse(localStorage.getItem("tasks"))
     }
 
-
-
-
-
-
-// to add cards for task 7 maybe
-
-
-
-const createHtmlTask = (task) => {
-  return (
-    `
-          <div class="card mb-3">
+    static createHtmlCard(object){
+      let card = document.createElement("div")
+      card.innerHTML = `<div>
+      <div class="card mb-3">
           <!-- <labtimeDivfor="">Task Name: </label> -->
-            <h5 class="card-header text-center fw-bold text-success">${task.name}</h5>
+            <h5 class="card-header text-center fw-bold text-success">${object.taskName}</h5>
             <div class="card-body border">
               <div class="mb-3 ">
               <!--  <labtimeDivclass="form-control for="">Assigned to: </label>-->
-              <textarea class="form-control" id="" cols=" 10" rows="2" placeholder="Assigned to: ${task.assignedTo}"readonly></textarea>
+              <textarea class="form-control" id="" cols=" 10" rows="2" placeholder="Assigned to: ${object.assignedTo}"readonly></textarea>
             </div>
             <div class="mb-3">
             <!-- <labtimeDivfor="">Due Date: </label> -->
-              <textarea class="form-control" id="" cols=" 10" rows="2" placeholder="Due Date: ${task.dueDate}"readonly></textarea>
+              <textarea class="form-control" id="" cols=" 10" rows="2" placeholder="Due Date: ${object.dueDate}"readonly></textarea>
             </div>
             <div class="mb-3 ">
             <!-- <labtimeDivfor="">Description:</label>-->
-              <textarea class="form-control" id="" cols=" 30" rows="3" placeholder="Description: ${task.description}"readonly></textarea>
+              <textarea class="form-control" id="" cols=" 30" rows="3" placeholder="Description: ${object.description}"readonly></textarea>
             </div> 
             <!-- Edit buttons -->
           </div>  
-         </div >  
-        `
-  )
+         </div >  `
+      TaskManager.render(card)
+    }
+
+    static render(card){
+      const taskCardContainer = document.getElementById("taskCardContainer")
+      taskCardContainer.appendChild(card)
+    }
+  }
+
+
+form.addEventListener('submit', (event) => submitFunction(event))
+
+function submitFunction(event){
+  event.preventDefault()
+  const target = event.target
+  const taskName = target.taskName.value
+  const description = target.description.value
+  const assignedTo = target.assignedTo.value
+  const dueDate = target.dueDate.value
+  const setStatus = target.setStatus.value
+
+
+  const newTask = new TaskManager(taskName, description, assignedTo, dueDate, setStatus)
+  TaskManager.createHtmlCard(newTask)
+
 }
+
+  
+
+
+
+  // function displayTasks(){
+  //   const bodyContainer = document.getElementById("taskCardContainer")
+
+  //   TaskManager.getLocalData().forEach(element => {
+  //     bodyContainer.appendChild(document.createElement("p")).innerHTML = `id: ${element.id}, title: ${element.title}, description: ${element.description},
+  //     assigned to: ${element.assigned_to}, date: ${element.date}, status: ${element.setStatus}`
+  //     })
+  //   }
 
 
 

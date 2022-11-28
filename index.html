@@ -70,7 +70,8 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action=script.js method="post" id="form">
+            <form id="form">
+              <!-- action=script.js method="post" -->
               <div class="form-group row">
                 <label for="taskName" class="col-sm-3 col-form-label"
                   >Task Name:</label>
@@ -137,7 +138,8 @@
                   data-dismiss="modal">
                   Close
                 </button>
-                <button type="submit" class="btn btn-primary" value="submit" id="submit" >Submit</button>
+                <button id="submitButton" type="submit" class="btn btn-success  mb-3">Submit</button>
+                <!-- <button type="submit" class="btn btn-primary" value="submit" id="submit" >Submit</button> -->
               </div>
             </form>
           </div>
@@ -170,7 +172,7 @@
       <div class="tasks" id="statusReview"></div>
       <div class="tasks" id="statusDone"></div>
     </div>
-
+    
     <br />
     <br />
     <br />
