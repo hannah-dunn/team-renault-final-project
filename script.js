@@ -115,24 +115,22 @@ function loadPage(){
     static createHtmlCard(object){
       let card = document.createElement("div")
       card.innerHTML = `<div>
-      <div class="card mb-3">
-          <!-- <labtimeDivfor="">Task Name: </label> -->
-            <h5 class="card-header text-center fw-bold text-success">${object.taskName}</h5>
-            <div class="card-body border">
-              <div class="mb-3 ">
-              <!--  <labtimeDivclass="form-control for="">Assigned to: </label>-->
-              <textarea class="form-control" id="" cols=" 10" rows="2" placeholder="Assigned to: ${object.assignedTo}"readonly></textarea>
+              <div class="card mx-3">
+            <label>Task Name:</label>
+            <textarea class="form-control" cols="5" rows = "1" placeholder="Task name:${object.taskName}" readonly></textarea>
+              <div class="mx-3 ">
+              <label>Assigned to: </label>
+              <textarea class="form-control" id="" cols="5" rows="2" placeholder="Assigned to: ${object.assignedTo}"readonly></textarea>
             </div>
-            <div class="mb-3">
-            <!-- <labtimeDivfor="">Due Date: </label> -->
-              <textarea class="form-control" id="" cols=" 10" rows="2" placeholder="Due Date: ${object.dueDate}"readonly></textarea>
+            <div class="mx-3">
+            <label>Due Date: </label>
+              <textarea class="form-control" id="" cols="5" rows="2" placeholder="Due Date: ${object.dueDate}"readonly></textarea>
             </div>
-            <div class="mb-3 ">
-            <!-- <labtimeDivfor="">Description:</label>-->
-              <textarea class="form-control" id="" cols=" 30" rows="3" placeholder="Description: ${object.description}"readonly></textarea>
-            </div> 
-            <!-- Edit buttons -->
-          </div>  
+            <div class="mx-3 ">
+            <label>Description:</label>
+              <textarea class="form-control" id="" cols="5" rows="3" placeholder="Description: ${object.description}"readonly></textarea>
+            </div>
+          </div>
          </div >  `
       TaskManager.render(card)
     }
