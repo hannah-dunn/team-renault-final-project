@@ -73,15 +73,31 @@ function display_c(){
 
  //Add tasks
 
-
-
-
 function loadPage(){
-  const allTasks = (TaskManager.getAllTasks())
+  const allTasks = JSON.parse((TaskManager.getAllTasks()))
   allTasks.map(task=>{
     let card = TaskManager.createHtmlCard(task)
   })
 }
+
+
+form.addEventListener('submit', (event) => submitFunction(event))
+
+function submitFunction(event){
+  event.preventDefault()
+  const target = event.target
+  const taskName = target.taskName.value
+  const description = target.description.value
+  const assignedTo = target.assignedTo.value
+  const dueDate = target.dueDate.value
+  const setStatus = target.setStatus.value
+
+
+  const newTask = new TaskManager(taskName, description, assignedTo, dueDate, setStatus)
+  TaskManager.createHtmlCard(newTask)
+
+}
+
 
 
   class TaskManager{
@@ -114,24 +130,36 @@ function loadPage(){
 
     static createHtmlCard(object){
       let card = document.createElement("div")
-      card.innerHTML = `<div>
-              <div class="card mx-3">
-            <label>Task Name:</label>
-            <textarea class="form-control" cols="5" rows = "1" placeholder="Task name:${object.taskName}" readonly></textarea>
-              <div class="mx-3 ">
-              <label>Assigned to: </label>
-              <textarea class="form-control" id="" cols="5" rows="2" placeholder="Assigned to: ${object.assignedTo}"readonly></textarea>
-            </div>
-            <div class="mx-3">
-            <label>Due Date: </label>
-              <textarea class="form-control" id="" cols="5" rows="2" placeholder="Due Date: ${object.dueDate}"readonly></textarea>
-            </div>
-            <div class="mx-3 ">
-            <label>Description:</label>
-              <textarea class="form-control" id="" cols="5" rows="3" placeholder="Description: ${object.description}"readonly></textarea>
-            </div>
-          </div>
-         </div >  `
+      card.innerHTML = `<div class="card mx-3" style="width: 18rem;">
+                          <div class="mx-3">
+                            <label>Task Name:</label>
+                            <h4 class="form-control"${object.taskName}readonly></h4>
+                          </div>
+                            <div class="mx-3">
+                            <label>Assigned to: </label>
+                            <textarea class="form-control" ${object.assignedTo}readonly></textarea>
+                          </div>
+                           <div class="mx-3">
+                            <label>Due Date: </label>
+                            <calendar class="form-control"${object.dueDate}readonly></calendar>
+                          </div>
+                          <div class="mx-3 ">
+                            <label>Description:</label>
+                             <textarea class="form-control" ${object.description}readonly></textarea>
+                          </div>
+                        </div>
+                        
+                        <div class="card mx-3" style="width: 18rem;">
+                        <div class="card-body">
+                          <ul class="list-group list-group-flush">
+                            <label>Task Name:</label><li class="list-group-item"${object.taskName}readonly></li>
+                            <label>Description:</label><li class="list-group-item"${object.description}readonly></li>
+                            <label>Due Date: </label><li class="list-group-item"${object.dueDate}readonly></li>
+                            <label>Assigned to: </label><li class="list-group-item"${object.assignedTo}readonly></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>`
       TaskManager.render(card)
     }
 
@@ -139,32 +167,14 @@ function loadPage(){
       const taskCardContainer = document.getElementById("taskCardContainer")
       taskCardContainer.appendChild(card)
     }
+
   }
 
 
-form.addEventListener('submit', (event) => submitFunction(event))
 
-function submitFunction(event){
-  event.preventDefault()
-  const target = event.target
-  const taskName = target.taskName.value
-  const description = target.description.value
-  const assignedTo = target.assignedTo.value
-  const dueDate = target.dueDate.value
-  const setStatus = target.setStatus.value
-
-
-  const newTask = new TaskManager(taskName, description, assignedTo, dueDate, setStatus)
-  TaskManager.createHtmlCard(newTask)
-
-}
-
-  
-
-
-
-  // function displayTasks(){
+  //  function displayTasks(){
   //   const bodyContainer = document.getElementById("taskCardContainer")
+  // }
 
   //   TaskManager.getLocalData().forEach(element => {
   //     bodyContainer.appendChild(document.createElement("p")).innerHTML = `id: ${element.id}, title: ${element.title}, description: ${element.description},
