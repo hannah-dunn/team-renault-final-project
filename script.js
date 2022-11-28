@@ -19,8 +19,8 @@ function validateTaskForm() {
   const validateName = document.getElementById('taskName').value;
   if(validateName.length === 0)
   alert("Please enter Name!");
-  if(validateName.length > 8)
-  alert("Name length can't be longer than 8 characters");
+  if(validateName.length < 8)
+  alert("Task name should be longer than 8 characters");
 
   // validate Description
 
@@ -28,16 +28,16 @@ function validateTaskForm() {
 
   if(validateDescription.length === 0)
   alert("Please enter Description!");
-  if(validateDescription.length > 15)
-  alert("Description can't be longer than 15 characters");
+  if(validateDescription.length < 15)
+  alert("Description should be longer than 15 characters");
 
   // validate AssignTo 
   const validateAssignedTo = document.getElementById('assignedTo').value;
 
   if(validateAssignedTo.length === 0)
   alert("Please assign to someone!");
-  if(validateAssignedTo.length > 8)
-  alert("The AssignTo name can't be longer than 8 characters");
+  if(validateAssignedTo.length < 8)
+  alert("The name of the assigned should be longer than 8 characters");
 
   // validate DueDate 
   const validateDueDate = document.getElementById('dueDate').value;
@@ -73,15 +73,32 @@ function display_c(){
 
  //Add tasks
 
-
-
-
 function loadPage(){
   const allTasks = (TaskManager.getAllTasks())
   allTasks.map(task=>{
     let card = TaskManager.createHtmlCard(task)
-  })
+   console.log(task)
+  }) 
 }
+
+
+form.addEventListener('submit', (event) => submitFunction(event))
+
+function submitFunction(event){
+  event.preventDefault()
+  const target = event.target
+  const taskName = target.taskName.value
+  const description = target.description.value
+  const assignedTo = target.assignedTo.value
+  const dueDate = target.dueDate.value
+  const setStatus = target.setStatus.value
+
+
+  const newTask = new TaskManager(taskName, description, assignedTo, dueDate, setStatus)
+  TaskManager.createHtmlCard(newTask)
+  console.log( )
+}
+
 
 
   class TaskManager{
@@ -114,59 +131,41 @@ function loadPage(){
 
     static createHtmlCard(object){
       let card = document.createElement("div")
-      card.innerHTML = `<div>
-      <div class="card mb-3">
-          <!-- <labtimeDivfor="">Task Name: </label> -->
-            <h5 class="card-header text-center fw-bold text-success">${object.taskName}</h5>
-            <div class="card-body border">
-              <div class="mb-3 ">
-              <!--  <labtimeDivclass="form-control for="">Assigned to: </label>-->
-              <textarea class="form-control" id="" cols=" 10" rows="2" placeholder="Assigned to: ${object.assignedTo}"readonly></textarea>
-            </div>
-            <div class="mb-3">
-            <!-- <labtimeDivfor="">Due Date: </label> -->
-              <textarea class="form-control" id="" cols=" 10" rows="2" placeholder="Due Date: ${object.dueDate}"readonly></textarea>
-            </div>
-            <div class="mb-3 ">
-            <!-- <labtimeDivfor="">Description:</label>-->
-              <textarea class="form-control" id="" cols=" 30" rows="3" placeholder="Description: ${object.description}"readonly></textarea>
-            </div> 
-            <!-- Edit buttons -->
-          </div>  
-         </div >  `
+      card.innerHTML = `<div class="card mx-3" style="width: 18rem;">
+                          <div class="mx-3">
+                            <label>Task Name:</label>
+                            <h4 class="form-control"${object.taskName}readonly></h4>
+                          </div>
+                            <div class="mx-3">
+                            <label>Assigned to: </label>
+                            <textarea class="form-control" ${object.assignedTo}readonly></textarea>
+                          </div>
+                           <div class="mx-3">
+                            <label>Due Date: </label>
+                            <calendar class="form-control"${object.dueDate}readonly></calendar>
+                          </div>
+                          <div class="mx-3 ">
+                            <label>Description:</label>
+                             <textarea class="form-control" ${object.description}readonly></textarea>
+                          </div>
+                        </div>
+                    </div>`
       TaskManager.render(card)
+      console.log(    )
     }
 
     static render(card){
       const taskCardContainer = document.getElementById("taskCardContainer")
       taskCardContainer.appendChild(card)
     }
+
   }
 
 
-form.addEventListener('submit', (event) => submitFunction(event))
 
-function submitFunction(event){
-  event.preventDefault()
-  const target = event.target
-  const taskName = target.taskName.value
-  const description = target.description.value
-  const assignedTo = target.assignedTo.value
-  const dueDate = target.dueDate.value
-  const setStatus = target.setStatus.value
-
-
-  const newTask = new TaskManager(taskName, description, assignedTo, dueDate, setStatus)
-  TaskManager.createHtmlCard(newTask)
-
-}
-
-  
-
-
-
-  // function displayTasks(){
+  //  function displayTasks(){
   //   const bodyContainer = document.getElementById("taskCardContainer")
+  // }
 
   //   TaskManager.getLocalData().forEach(element => {
   //     bodyContainer.appendChild(document.createElement("p")).innerHTML = `id: ${element.id}, title: ${element.title}, description: ${element.description},
