@@ -29,12 +29,14 @@
     <h4 id="timeDate"><span id="ct"></span></h4>
 
     <!-- Jumbotron Banner -->
-    <div class="jumbotron text-center">
+    <div class="banner">
       <h1 class="display-4">Organize Everything</h1>
-      <p class="lead">
-        Try out our task manager website to organize all of the tasks you and
-        your team need to do.
-      </p>
+      <div class="printer">
+        <div class="typed-out">
+          Try out our task manager website to organize all of the tasks you and
+          your team need to do!
+        </div>
+      </div>
       <hr class="my-4" />
       <button
         type="button"
@@ -49,7 +51,7 @@
     </div> -->
 
     <!-- Modal -->
-    <div
+    <div 
       class="modal fade"
       id="exampleModalCenter"
       tabindex="-1"
@@ -74,8 +76,8 @@
             <form id="form">
               <div class="form-group row">
                 <label for="taskName" class="col-sm-3 col-form-label"
-                  >Task Name:</label
-                >
+                  >Task Name:</label>
+                
                 <div class="col-sm-12">
                   <input
                     type="text"
@@ -92,7 +94,7 @@
                 <div class="col-sm-12">
                   <textarea
                     class="form-control"
-                    id="Description"
+                    id="description"
                     placeholder="Description"
                     rows="4"
                     cols="60"
@@ -103,10 +105,11 @@
                 <label for="dueDate" class="col-form-label">Due Date:</label>
                 <div>
                   <input
-                    type="text"
+                    type="date"
                     class="form-control"
                     id="dueDate"
                     placeholder="Due Date"
+                    min="2022-01-01"
                   />
                 </div>
               </div>
@@ -149,6 +152,7 @@
                   type="button"
                   class="btn btn-primary"
                   data-dismiss="modal"
+                  onclick="validateTaskForm()"
                 >
                   Save task
                 </button>
@@ -246,6 +250,7 @@
         </div>
       </div>
     </div>
+
     <br />
     <br />
     <br />
