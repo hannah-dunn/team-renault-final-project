@@ -5,7 +5,7 @@ const description = document.getElementById('description');
 const dueDate = document.getElementById('dueDate');
 const assignedTo = document.getElementById('assignedTo');
 const taskName = document.getElementById('taskName');
-const statusInput = document.getElementById('setStatus');
+const setStatus = document.getElementById('setStatus');
 const submitButton = document.getElementById('submitButton');
 
 
@@ -17,37 +17,55 @@ function validateTaskForm() {
   //validate Name length
   
   const validateName = document.getElementById('taskName').value;
-  if(validateName.length === 0)
-  alert("Please enter Name!");
-  if(validateName.length < 8)
-  alert("Task name should be longer than 8 characters");
+  if(validateName.length === 0){
+    alert("Please enter Name!");
+    return false
+  }
+  if(validateName.length < 8){
+    alert("Task name should be longer than 8 characters");
+    return false
+  }
 
   // validate Description
 
   const validateDescription = document.getElementById('description').value;
 
-  if(validateDescription.length === 0)
-  alert("Please enter Description!");
-  if(validateDescription.length < 15)
-  alert("Description should be longer than 15 characters");
+  if(validateDescription.length === 0){
+    alert("Please enter Description!");
+    return false
+  }
+
+  if(validateDescription.length < 15){
+    alert("Description should be longer than 15 characters");
+    return false
+  }
 
   // validate AssignTo 
   const validateAssignedTo = document.getElementById('assignedTo').value;
 
-  if(validateAssignedTo.length === 0)
-  alert("Please assign to someone!");
-  if(validateAssignedTo.length < 8)
-  alert("The name of the assigned should be longer than 8 characters");
+  if(validateAssignedTo.length === 0){
+    alert("Please assign to someone!");
+    return false
+  }
+  if(validateAssignedTo.length < 8){
+    alert("The name of the assigned should be longer than 8 characters");
+    return false
+  }
 
   // validate DueDate 
   const validateDueDate = document.getElementById('dueDate').value;
 
   const currentDate = new Date().toJSON().slice(0,10);
- 
-  if(validateDueDate.length === 0)
-  alert("Due date can't be empty!");
-  if(validateDueDate.length != 0 && validateDueDate < currentDate)
-  alert("Due date can't be later than current date!");
+  if(validateDueDate.length === 0){
+    alert("Due date can't be empty!");
+    return false
+  }
+  if(validateDueDate.length != 0 && validateDueDate < currentDate){
+    alert("Due date can't be later than current date!");
+    return false
+  }
+
+  return true
 }
 
 
@@ -78,7 +96,7 @@ function loadPage(){
   allTasks.map(task=>{
     let card = TaskManager.createHtmlCard(task)
    console.log(task)
-  }) 
+  })
 }
 
 
@@ -86,6 +104,8 @@ form.addEventListener('submit', (event) => submitFunction(event))
 
 function submitFunction(event){
   event.preventDefault()
+  if(validateTaskForm()){
+
   const target = event.target
   const taskName = target.taskName.value
   const description = target.description.value
@@ -97,18 +117,18 @@ function submitFunction(event){
   const newTask = new TaskManager(taskName, description, assignedTo, dueDate, setStatus)
   TaskManager.createHtmlCard(newTask)
   console.log( )
-}
+}}
 
 
 
   class TaskManager{
     static id = 0
     static array = []
-    constructor(id,taskName,description,assignedTo,dueDate,setStatus){
+    constructor(taskName,description,assignedTo,dueDate,setStatus){
       this.id = TaskManager.id++;
        this.taskName = taskName;
        this.description = description;
-       this.assigned_to = assignedTo;
+       this.assignedTo = assignedTo;
        this.dueDate = dueDate;
        this.setStatus = setStatus;
        TaskManager.array.push(this)
@@ -131,27 +151,32 @@ function submitFunction(event){
 
     static createHtmlCard(object){
       let card = document.createElement("div")
-      card.innerHTML = `<div class="card mx-3" style="width: 18rem;">
+      card.innerHTML =
+                      `<div class="card mx-3">
                           <div class="mx-3">
                             <label>Task Name:</label>
-                            <h4 class="form-control"${object.taskName}readonly></h4>
+                            <h4>${object.taskName}</h4>
                           </div>
                             <div class="mx-3">
                             <label>Assigned to: </label>
-                            <textarea class="form-control" ${object.assignedTo}readonly></textarea>
+                            <p>${object.assignedTo}</p>
                           </div>
                            <div class="mx-3">
                             <label>Due Date: </label>
-                            <calendar class="form-control"${object.dueDate}readonly></calendar>
+                            <p>${object.dueDate}</p>
                           </div>
                           <div class="mx-3 ">
                             <label>Description:</label>
-                             <textarea class="form-control" ${object.description}readonly></textarea>
+                             <p>${object.description}</p>
+                          </div>
+                          <div class="mx-3 ">
+                            <label>Status:</label>
+                            <p>${object.setStatus}</p>
                           </div>
                         </div>
-                    </div>`
+                      </div>`
       TaskManager.render(card)
-      console.log(    )
+      console.log(object)
     }
 
     static render(card){
