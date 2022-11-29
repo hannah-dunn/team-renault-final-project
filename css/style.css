@@ -43,6 +43,7 @@ body {
 
 .typed-out {
     overflow: hidden;
+    position: relative;
     border-right: .15em solid yellow;
     white-space: nowrap;
     animation: 
