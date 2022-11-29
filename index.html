@@ -67,8 +67,7 @@
               type="button"
               class="close"
               data-dismiss="modal"
-              aria-label="Close"
-            >
+              aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -77,10 +76,11 @@
               <div class="form-group row">
                 <label for="taskName" class="col-sm-3 col-form-label"
                   >Task Name:</label>
-                
+
                 <div class="col-sm-12">
                   <input
                     type="text"
+                    name="taskName"
                     class="form-control"
                     id="taskName"
                     placeholder="Task Name"
@@ -88,9 +88,8 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="description" class="col-sm-3 col-form-label"
-                  >Description:</label
-                >
+                <label for="description" name= "description" class="col-sm-3 col-form-label"
+                  >Description:</label>
                 <div class="col-sm-12">
                   <textarea
                     class="form-control"
@@ -107,6 +106,7 @@
                   <input
                     type="date"
                     class="form-control"
+                    name="dueDate"
                     id="dueDate"
                     placeholder="Due Date"
                     min="2022-01-01"
@@ -117,6 +117,7 @@
                 <label for="assignedTo">Assigned to:</label>
                 <input
                   type="text"
+                  name="assignedTo"
                   class="form-control"
                   id="assignedTo"
                   placeholder="Assigned to"
@@ -124,38 +125,23 @@
               </div>
               <div class="form-group">
                 <label for="status">Status:</label>
-                <select id="setStatus" name="status" class="form-control">
+                <select id="setStatus" name="setStatus" class="form-control">
                   <option value>Select Status</option>
-                  <option value="modalToDo">To Do</option>
-                  <option value="modalInProgress">In Progress</option>
-                  <option value="modalReview">Review</option>
-                  <option value="modalDone">Done</option>
+                  <option value="To Do">To Do</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Review">Review</option>
+                  <option value="Done">Done</option>
                 </select>
               </div>
-              <!-- <br /> -->
-
-              <!-- <select id="assignedTo" name="assignedTo" class="form-control">
-                  <option value="Craig">Craig</option>
-                  <option value="Nicole">Nicole</option>
-                  <option value="Hannah">Hannah</option>
-                  <option value="Hannah">Ron</option>
-                </select> -->
               <div class="modal-footer">
                 <button
                   type="button"
                   class="btn btn-secondary"
-                  data-dismiss="modal"
-                >
+                  data-dismiss="modal">
                   Close
                 </button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  data-dismiss="modal"
-                  onclick="validateTaskForm()"
-                >
-                  Save task
-                </button>
+                <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
+                <!-- <button type="submit" class="btn btn-primary" value="submit" id="submit" >Submit</button> -->
               </div>
             </form>
           </div>
@@ -182,75 +168,13 @@
     </div>
 
     <!-- Task Cards -->
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card mb-5">
-            <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Name: Do basic HTML</li>
-                <li class="list-group-item">
-                  Description: Get a boilerplate and chuck it in
-                </li>
-                <li class="list-group-item">Due Date: 31/10/22</li>
-                <li class="list-group-item">Assigned to: Hannah</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card mb-5">
-            <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Name: Add CSS</li>
-                <li class="list-group-item">
-                  Description: Find some cute CSS and make pretty
-                </li>
-                <li class="list-group-item">Due Date: 1/11/22</li>
-                <li class="list-group-item">Assigned to: Craig</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card mb-5">
-            <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Name: Do basic HTML</li>
-                <li class="list-group-item">Description: Do basic HTML</li>
-                <li class="list-group-item">Due Date: 1/11/22</li>
-                <li class="list-group-item">Assigned to: Nicole</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card mb-5">
-            <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Name: Do basic HTML</li>
-                <li class="list-group-item">Description: Do basic HTML</li>
-                <li class="list-group-item">Due Date: 20/10/44</li>
-                <li class="list-group-item">Assigned to: Ron</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card mb-5">
-            <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Name: Do HTML</li>
-                <li class="list-group-item">
-                  Description: Do basic HTML Do basic HTML Do basic HTML
-                </li>
-                <li class="list-group-item">Due Date: 11/11/11</li>
-                <li class="list-group-item">Assigned to: Craig</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div id="taskCardContainer">
+      <div class="tasks col mx-2" id="statusToDo"></div>
+      <div class="tasks" id="statusInProgress"></div>
+      <div class="tasks" id="statusReview"></div>
+      <div class="tasks" id="statusDone"></div>
     </div>
-
+    
     <br />
     <br />
     <br />
