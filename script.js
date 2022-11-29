@@ -184,6 +184,7 @@ function submitFunction(event){
                         </div>
                       </div>`
       TaskManager.render(card)
+      TaskManager.saveToLocal()
       console.log(object)
     }
 
