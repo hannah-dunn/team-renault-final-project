@@ -11,6 +11,7 @@ const submitButton = document.getElementById('submitButton');
 
 
 
+
 // TASK - 4 - Task Form Inputs Validation 
 
 function validateTaskForm() {
@@ -102,6 +103,9 @@ function loadPage(){
 
 form.addEventListener('submit', (event) => submitFunction(event))
 
+
+
+
 function submitFunction(event){
   event.preventDefault()
   if(validateTaskForm()){
@@ -173,6 +177,10 @@ function submitFunction(event){
                             <label>Status:</label>
                             <p>${object.setStatus}</p>
                           </div>
+                          <div class="card-footer bg-transparent border-light">
+                          <button type="submit">Mark as Done</button>
+                          <button type="submit">Delete</button>
+                        </div>
                         </div>
                       </div>`
       TaskManager.render(card)
@@ -185,18 +193,5 @@ function submitFunction(event){
     }
 
   }
-
-
-
-  //  function displayTasks(){
-  //   const bodyContainer = document.getElementById("taskCardContainer")
-  // }
-
-  //   TaskManager.getLocalData().forEach(element => {
-  //     bodyContainer.appendChild(document.createElement("p")).innerHTML = `id: ${element.id}, title: ${element.title}, description: ${element.description},
-  //     assigned to: ${element.assigned_to}, date: ${element.date}, status: ${element.setStatus}`
-  //     })
-  //   }
-
 
 
