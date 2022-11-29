@@ -194,4 +194,36 @@ function submitFunction(event){
 
   }
 
-
+  // class Storage {
+  //   static getTasks() {
+  //     let tweets;
+  //     if (localStorage.getItem("tweets") === null) {
+  //       tweets = [];
+  //     } else {
+  //       tweets = JSON.parse(localStorage.getItem("tweets"));
+  //     }
+  //     return tweets;
+  //   }
+  
+  //   static displayTweets() {
+  //     const tweets = Storage.getTweets();
+  //     tweets.forEach((tweet) => {
+  //       addTweet(tweet);
+  //     });
+  //   }
+  //   static saveTweet(tweet) {
+  //     const tweets = Storage.getTweets();
+  //     tweets.push(tweet);
+  
+  //     localStorage.setItem("tweets", JSON.stringify(tweets));
+  //   }
+  //   static removeTweet(tweetValue) {
+  //     const tweets = Storage.getTweets();
+  //     tweets.forEach((tweet, index) => {
+  //       if (tweet === tweetValue) {
+  //         tweets.splice(index, 1);
+  //       }
+  //     });
+  //     localStorage.setItem("tweets", JSON.stringify(tweets));
+  //   }
+  // }
