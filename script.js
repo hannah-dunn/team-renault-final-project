@@ -93,7 +93,7 @@ function display_c(){
  //Add tasks
 
 function loadPage(){
-  const allTasks = (TaskManager.getAllTasks())
+  const allTasks = TaskManager.getAllTasks()
   allTasks.map(task=>{
     let card = TaskManager.createHtmlCard(task)
    console.log(task)
