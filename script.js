@@ -180,8 +180,8 @@ function submitFunction(event){
                             <p>${object.setStatus}</p>
                           </div>
                           <div class="card-footer bg-transparent border-light">
-                            <button type="submit" class="btn btn-success">Mark as Done</button>
-                            <button type="submit" class="btn btn-danger delelte-button">Delete</button>
+                            <button type="submit" class="btn btn-success done-button ${hide(setStatus)}">Mark as Done</button>
+                            <button type="submit" class="btn btn-danger delete-button">Delete</button>
                           </div>
                       </div>`
       TaskManager.render(card)
