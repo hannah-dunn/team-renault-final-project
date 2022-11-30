@@ -181,9 +181,8 @@ function submitFunction(event){
                           </div>
                           <div class="card-footer bg-transparent border-light">
                           <button type="submit">Mark as Done</button>
-                          <button id="modalBtnDel" type="submit">Delete</button>
-                        </div>
-                        </div>
+                          <button class="delete-button" type="submit">Delete</button>
+                          </div>
                       </div>`
       TaskManager.render(card)
     }
@@ -193,10 +192,14 @@ function submitFunction(event){
       taskCardContainer.appendChild(card)
     }
 
-   static deleteTask(card){
-      localStorage.removeItem(card.id++)
-      document.getElementById("modalBtnDel").removeChild();
+    static deleteTask(taskId){
+      newTasks = []
     }
+    // ----doesnt work----
+  //  static deleteTask(card){
+  //     localStorage.removeItem(card.id++)
+  //     document.getElementById("modalBtnDel").removeChild();
+  //   }
 
   }
 
