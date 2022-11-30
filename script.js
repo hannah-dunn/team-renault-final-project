@@ -9,13 +9,11 @@ const setStatus = document.getElementById('setStatus');
 const submitButton = document.getElementById('submitButton');
 const modalBtnDel = document.getElementById("modalBtnDel");
 
-
-
-// TASK - 4 - Task Form Inputs Validation 
+// TASK - 4 - Task Form Inputs Validation
 
 function validateTaskForm() {
+
   //validate Name length
-  
   const validateName = document.getElementById('taskName').value;
   if(validateName.length === 0){
     alert("Please enter Name!");
@@ -27,7 +25,6 @@ function validateTaskForm() {
   }
 
   // validate Description
-
   const validateDescription = document.getElementById('description').value;
 
   if(validateDescription.length === 0){
@@ -40,7 +37,7 @@ function validateTaskForm() {
     return false
   }
 
-  // validate AssignTo 
+  // validate AssignTo
   const validateAssignedTo = document.getElementById('assignedTo').value;
 
   if(validateAssignedTo.length === 0){
@@ -52,7 +49,7 @@ function validateTaskForm() {
     return false
   }
 
-  // validate DueDate 
+  // validate DueDate
   const validateDueDate = document.getElementById('dueDate').value;
 
   const currentDate = new Date().toJSON().slice(0,10);
@@ -68,7 +65,6 @@ function validateTaskForm() {
   return true
 }
 
-
 //TASK 5 -- Displaying Date
 
 // Date & Time Display
@@ -76,18 +72,16 @@ function display_c(){
     let refresh=1000; // Refresh rate in milli seconds
     mytime=setTimeout('display_ct()',refresh)
  }
- 
+
  function display_ct() {
    let CDate = new Date()
-   let NewDate=CDate.toDateString(); 
+   let NewDate=CDate.toDateString();
    NewDate = NewDate + " - " + CDate.toLocaleTimeString();
    document.getElementById('ct').innerHTML = NewDate;
    display_c();
  }
 
-
-
-
+// TASK 6 -- Create a Class
 
  //Add tasks
 
@@ -180,8 +174,8 @@ function submitFunction(event){
                             <p>${object.setStatus}</p>
                           </div>
                           <div class="card-footer bg-transparent border-light">
-                            <button type="submit" class="btn btn-success">Mark as Done</button>
-                            <button type="submit" class="btn btn-danger delelte-button">Delete</button>
+                            <button type="submit" class="btn btn-success done-button">Mark as Done</button>
+                            <button type="submit" class="btn btn-danger delete-button">Delete</button>
                           </div>
                       </div>`
       TaskManager.render(card)
