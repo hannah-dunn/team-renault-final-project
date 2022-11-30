@@ -40,7 +40,7 @@ function validateTaskForm() {
     return false
   }
 
-  // validate AssignTo 
+  // validate AssignTo
   const validateAssignedTo = document.getElementById('assignedTo').value;
 
   if(validateAssignedTo.length === 0){
@@ -52,7 +52,7 @@ function validateTaskForm() {
     return false
   }
 
-  // validate DueDate 
+  // validate DueDate
   const validateDueDate = document.getElementById('dueDate').value;
 
   const currentDate = new Date().toJSON().slice(0,10);
@@ -76,10 +76,10 @@ function display_c(){
     let refresh=1000; // Refresh rate in milli seconds
     mytime=setTimeout('display_ct()',refresh)
  }
- 
+
  function display_ct() {
    let CDate = new Date()
-   let NewDate=CDate.toDateString(); 
+   let NewDate=CDate.toDateString();
    NewDate = NewDate + " - " + CDate.toLocaleTimeString();
    document.getElementById('ct').innerHTML = NewDate;
    display_c();
@@ -87,9 +87,8 @@ function display_c(){
 
 
 
-
-
- //Add tasks
+// TASK 6 -- Create a class, add tasks programmatically
+// TASK 7
 
 function loadPage(){
 
@@ -100,11 +99,7 @@ function loadPage(){
   })
 }
 
-
 form.addEventListener('submit', (event) => submitFunction(event))
-
-
-
 
 function submitFunction(event){
   event.preventDefault()
@@ -116,14 +111,10 @@ function submitFunction(event){
   const assignedTo = target.assignedTo.value
   const dueDate = target.dueDate.value
   const setStatus = target.setStatus.value
-  // TaskManager.deleteTask(a)
-
 
   const newTask = new TaskManager(taskName, description, assignedTo, dueDate, setStatus)
   TaskManager.createHtmlCard(newTask)
 }}
-
-
 
   class TaskManager{
     static id = 0
@@ -135,7 +126,6 @@ function submitFunction(event){
        this.assignedTo = assignedTo;
        this.dueDate = dueDate;
        this.setStatus = setStatus;
-      //  TaskManager.array.push(this) ---- had this here originally, had to move down to static createHtmlCard()
     }
     static saveToLocal(){
       localStorage.setItem("tasks", JSON.stringify(TaskManager.array))
