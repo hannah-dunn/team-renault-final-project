@@ -148,7 +148,7 @@ function submitFunction(event){
       TaskManager.saveToLocal()
       let card = document.createElement("div")
       card.innerHTML =
-                      `<div class="card mx-3">
+                      `<div class="card mx-3" style="margin-bottom: 10px;">
                           <div class="mx-3">
                             <label>Task Name:</label>
                             <h4>${object.taskName}</h4>
