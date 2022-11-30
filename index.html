@@ -26,12 +26,11 @@
     <link rel="manifest" href="/team-renault-sprint-1/src/site.webmanifest">
 
   </head>
-  <body  onload="display_ct()";>
+  <body onload="display_ct()";>
     <nav class="navbar navbar-light bg-primary">
       <span class="h1 text-white mb-0 h1 mx-auto" id="taskManager"
         >Task Manager</span>
     </nav>
-    <h4 id="timeDate"><span id="ct"></span></h4>
 
     <!-- Jumbotron Banner -->
     <div class="banner">
@@ -181,19 +180,20 @@
 
     <!-- Footer -->
     <footer
-      class="text-center text-white fixed-bottom"
-      style="background-color: #21081a"
-    >
+      class="text-center text-white fixed-bottom bg-primary">
+      <!-- style="background-color: #21081a" -->
+
       <!-- Grid Container -->
-      <div class="container p-1"></div>
+      <div class="container p-1">
+        <h4 id="timeDate"><span id="ct"></span></h4>
+      </div>
 
       <!-- Copyright -->
-      <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2)">
+      <!-- <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2)">
         © 2022 Copyright:
         <a class="text-white" href="https://idoubledareyou.com.au/"
-          >idoubledareyou.com.au</a
-        >
-      </div>
+          >idoubledareyou.com.au</a>
+      </div> -->
     </footer>
 
     <!-- Optional JavaScript -->
