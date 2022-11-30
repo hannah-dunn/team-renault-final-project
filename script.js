@@ -178,8 +178,8 @@ function submitFunction(event){
                             <p>${object.setStatus}</p>
                           </div>
                           <div class="card-footer bg-transparent border-light">
-                          <button type="submit">Mark as Done</button>
-                          <button type="submit">Delete</button>
+                          <button type="submit" class="btn btn-success">Mark as Done</button>
+                          <button type="submit" class="btn btn-danger">Delete</button>
                         </div>
                         </div>
                       </div>`
