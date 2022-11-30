@@ -7,8 +7,7 @@ const assignedTo = document.getElementById('assignedTo');
 const taskName = document.getElementById('taskName');
 const setStatus = document.getElementById('setStatus');
 const submitButton = document.getElementById('submitButton');
-
-
+const modalBtnDel = document.getElementById("modalBtnDel");
 
 
 
@@ -93,10 +92,11 @@ function display_c(){
  //Add tasks
 
 function loadPage(){
+
   const allTasks = TaskManager.getAllTasks()
+  console.log(allTasks)
   allTasks.map(task=>{
-    let card = TaskManager.createHtmlCard(task)
-   console.log(task)
+    TaskManager.createHtmlCard(task)
   })
 }
 
@@ -116,11 +116,11 @@ function submitFunction(event){
   const assignedTo = target.assignedTo.value
   const dueDate = target.dueDate.value
   const setStatus = target.setStatus.value
+  // TaskManager.deleteTask(a)
 
 
   const newTask = new TaskManager(taskName, description, assignedTo, dueDate, setStatus)
   TaskManager.createHtmlCard(newTask)
-  console.log( )
 }}
 
 
@@ -135,7 +135,7 @@ function submitFunction(event){
        this.assignedTo = assignedTo;
        this.dueDate = dueDate;
        this.setStatus = setStatus;
-       TaskManager.array.push(this)
+      //  TaskManager.array.push(this) ---- had this here originally, had to move down to static createHtmlCard()
     }
     static saveToLocal(){
       localStorage.setItem("tasks", JSON.stringify(TaskManager.array))
@@ -154,6 +154,8 @@ function submitFunction(event){
     }
 
     static createHtmlCard(object){
+      TaskManager.array.push(object)
+      TaskManager.saveToLocal()
       let card = document.createElement("div")
       card.innerHTML =
                       `<div class="card mx-3">
@@ -179,13 +181,11 @@ function submitFunction(event){
                           </div>
                           <div class="card-footer bg-transparent border-light">
                           <button type="submit">Mark as Done</button>
-                          <button type="submit">Delete</button>
+                          <button id="modalBtnDel" type="submit">Delete</button>
                         </div>
                         </div>
                       </div>`
       TaskManager.render(card)
-      TaskManager.saveToLocal()
-      console.log(object)
     }
 
     static render(card){
@@ -193,38 +193,10 @@ function submitFunction(event){
       taskCardContainer.appendChild(card)
     }
 
+   static deleteTask(card){
+      localStorage.removeItem(card.id++)
+      document.getElementById("modalBtnDel").removeChild();
+    }
+
   }
 
-  // class Storage {
-  //   static getTasks() {
-  //     let tweets;
-  //     if (localStorage.getItem("tweets") === null) {
-  //       tweets = [];
-  //     } else {
-  //       tweets = JSON.parse(localStorage.getItem("tweets"));
-  //     }
-  //     return tweets;
-  //   }
-  
-  //   static displayTweets() {
-  //     const tweets = Storage.getTweets();
-  //     tweets.forEach((tweet) => {
-  //       addTweet(tweet);
-  //     });
-  //   }
-  //   static saveTweet(tweet) {
-  //     const tweets = Storage.getTweets();
-  //     tweets.push(tweet);
-  
-  //     localStorage.setItem("tweets", JSON.stringify(tweets));
-  //   }
-  //   static removeTweet(tweetValue) {
-  //     const tweets = Storage.getTweets();
-  //     tweets.forEach((tweet, index) => {
-  //       if (tweet === tweetValue) {
-  //         tweets.splice(index, 1);
-  //       }
-  //     });
-  //     localStorage.setItem("tweets", JSON.stringify(tweets));
-  //   }
-  // }
