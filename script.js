@@ -163,11 +163,11 @@ function submitFunction(event){
                             <label>Task Name:</label>
                             <h4>${object.taskName}</h4>
                           </div>
-                            <div class="mx-3">
+                          <div class="mx-3">
                             <label>Assigned to: </label>
                             <p>${object.assignedTo}</p>
                           </div>
-                           <div class="mx-3">
+                          <div class="mx-3">
                             <label>Due Date: </label>
                             <p>${object.dueDate}</p>
                           </div>
@@ -180,8 +180,8 @@ function submitFunction(event){
                             <p>${object.setStatus}</p>
                           </div>
                           <div class="card-footer bg-transparent border-light">
-                          <button type="submit">Mark as Done</button>
-                          <button class="delete-button" type="submit">Delete</button>
+                            <button type="submit" class="btn btn-success">Mark as Done</button>
+                            <button type="submit" class="btn btn-danger delelte-button">Delete</button>
                           </div>
                       </div>`
       TaskManager.render(card)
