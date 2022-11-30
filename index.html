@@ -16,19 +16,25 @@
     <link rel="stylesheet" href="./css/style.css" />
 
     <title>Task Manager</title>
+
+    <!-- Favicon code -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/team-renault-sprint-1/src/site.webmanifest">
+
   </head>
   <body onload="display_ct()";>
     <nav class="navbar navbar-light bg-primary">
       <span class="h1 text-white mb-0 h1 mx-auto" id="taskManager">Task Manager</span>
     </nav>
-    <h4 id="timeDate"><span id="ct"></span></h4>
 
     <!-- Jumbotron Banner -->
     <div class="banner">
       <h1 class="display-4">Organise Everything</h1>
       <div class="printer">
         <div class="typed-out">
-          Try out our task manager to organize all of the tasks you and
+          Try out our task manager to organise all of the tasks you and
           your team need to do!
         </div>
       </div>
@@ -153,7 +159,7 @@
     </div>
 
     <!-- Task Cards -->
-    <div id="taskCardContainer"></div>
+    <div id="taskCardContainer" class="container my-5"></div>
 
     <br />
     <br />
@@ -171,19 +177,20 @@
 
     <!-- Footer -->
     <footer
-      class="text-center text-white fixed-bottom"
-      style="background-color: #21081a"
-    >
+      class="text-center text-white fixed-bottom bg-primary">
+      <!-- style="background-color: #21081a" -->
+
       <!-- Grid Container -->
-      <div class="container p-1"></div>
+      <div class="container p-1">
+        <h4 id="timeDate"><span id="ct"></span></h4>
+      </div>
 
       <!-- Copyright -->
-      <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2)">
+      <!-- <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2)">
         © 2022 Copyright:
         <a class="text-white" href="https://idoubledareyou.com.au/"
-          >idoubledareyou.com.au</a
-        >
-      </div>
+          >idoubledareyou.com.au</a>
+      </div> -->
     </footer>
 
     <!-- Optional JavaScript -->

@@ -81,9 +81,10 @@ function display_c(){
    display_c();
  }
 
-// TASK 6 -- Create a Class
 
- //Add tasks
+// TASK 6 -- Create a class, add tasks programmatically
+// TASK 7 -- Display Task Cards
+
 
 function loadPage(){
 
@@ -94,11 +95,7 @@ function loadPage(){
   })
 }
 
-
 form.addEventListener('submit', (event) => submitFunction(event))
-
-
-
 
 function submitFunction(event){
   event.preventDefault()
@@ -110,14 +107,10 @@ function submitFunction(event){
   const assignedTo = target.assignedTo.value
   const dueDate = target.dueDate.value
   const setStatus = target.setStatus.value
-  // TaskManager.deleteTask(a)
-
 
   const newTask = new TaskManager(taskName, description, assignedTo, dueDate, setStatus)
   TaskManager.createHtmlCard(newTask)
 }}
-
-
 
   class TaskManager{
     static id = 0
@@ -129,7 +122,6 @@ function submitFunction(event){
        this.assignedTo = assignedTo;
        this.dueDate = dueDate;
        this.setStatus = setStatus;
-      //  TaskManager.array.push(this) ---- had this here originally, had to move down to static createHtmlCard()
     }
     static saveToLocal(){
       localStorage.setItem("tasks", JSON.stringify(TaskManager.array))
@@ -152,7 +144,7 @@ function submitFunction(event){
       TaskManager.saveToLocal()
       let card = document.createElement("div")
       card.innerHTML =
-                      `<div class="card mx-3">
+                      `<div class="card mx-3" style="margin-bottom: 10px;">
                           <div class="mx-3">
                             <label>Task Name:</label>
                             <h4>${object.taskName}</h4>
