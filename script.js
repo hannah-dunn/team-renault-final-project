@@ -108,6 +108,7 @@ function submitFunction(event){
   const dueDate = target.dueDate.value
   const setStatus = target.setStatus.value
 
+
   const newTask = new TaskManager(taskName, description, assignedTo, dueDate, setStatus)
   TaskManager.createHtmlCard(newTask)
 }}
@@ -166,8 +167,8 @@ function submitFunction(event){
                             <p>${object.setStatus}</p>
                           </div>
                           <div class="card-footer bg-transparent border-light">
-                            <button type="submit" class="btn btn-success done-button">Mark as Done</button>
-                            <button type="submit" class="btn btn-danger delete-button" id="${object.id}>Delete</button>
+                            <button type="submit" class="btn btn-success done-button" >Mark as Done</button>
+                            <button type="submit" class="delete-button btn btn-danger" >Delete</button>
                           </div>
                       </div>`
       TaskManager.render(card)
@@ -178,8 +179,16 @@ function submitFunction(event){
       taskCardContainer.appendChild(card)
     }
 
-
   }
+
+
+// EXPERIMENTAL DELETE BUTTON STUFF
+// it doesn't work at all
+
+
+// id="del" data-id=${object.id}
+// id="done" data-id=${object.id}
+//   itemsContainer.addEventListener('click', function(e){}
 
   function DeleteCard(taskId){
     TaskManager.removeTasks(taskId)
@@ -191,7 +200,7 @@ function submitFunction(event){
       if (element === e.currentTarget) {
         return
       }
-      if (element.nodeName === "BUTTON"&&element.className==="delete-button") {
+      if (element.nodeName === "button"&&element.className==="delete-button") {
       removeTasks(Number(element.id))
       displayCards()
       TaskManager.saveToLocal(taskList)
