@@ -116,7 +116,7 @@ function submitFunction(event){
     static id = 0
     static array = []
     constructor(taskName,description,assignedTo,dueDate,setStatus){
-      this.id = TaskManager.id++;
+       this.id = TaskManager.id++;
        this.taskName = taskName;
        this.description = description;
        this.assignedTo = assignedTo;
@@ -167,7 +167,7 @@ function submitFunction(event){
                           </div>
                           <div class="card-footer bg-transparent border-light">
                             <button type="submit" class="btn btn-success done-button">Mark as Done</button>
-                            <button type="submit" class="btn btn-danger delete-button">Delete</button>
+                            <button type="submit" class="btn btn-danger delete-button" id="${object.id}>Delete</button>
                           </div>
                       </div>`
       TaskManager.render(card)
@@ -178,14 +178,30 @@ function submitFunction(event){
       taskCardContainer.appendChild(card)
     }
 
-    static deleteTask(taskId){
-      newTasks = []
-    }
-    // ----doesnt work----
-  //  static deleteTask(card){
-  //     localStorage.removeItem(card.id++)
-  //     document.getElementById("modalBtnDel").removeChild();
-  //   }
 
   }
 
+  function DeleteCard(taskId){
+    TaskManager.removeTasks(taskId)
+    displayCards()
+  }
+    document.getElementById("taskCardContainer").addEventListener("click", (e) => {
+
+      let element = e.target
+      if (element === e.currentTarget) {
+        return
+      }
+      if (element.nodeName === "BUTTON"&&element.className==="delete-button") {
+      removeTasks(Number(element.id))
+      displayCards()
+      TaskManager.saveToLocal(taskList)
+      }
+   })
+
+   function removeTasks(id) {
+    for(let i=0;i<taskList.length;i++) {
+      if (taskList[i].id===id){
+        taskList.splice(i,1)
+      }
+    }
+    }
