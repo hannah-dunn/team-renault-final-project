@@ -112,7 +112,6 @@ function submitFunction(event){
   const newTask = new TaskManager(taskName, description, assignedTo, dueDate, setStatus)
   TaskManager.createHtmlCard(newTask)
 }}
-
   class TaskManager{
     static id = 0
     static array = []
