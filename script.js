@@ -108,15 +108,15 @@ function submitFunction(event){
   const dueDate = target.dueDate.value
   const setStatus = target.setStatus.value
 
+
   const newTask = new TaskManager(taskName, description, assignedTo, dueDate, setStatus)
   TaskManager.createHtmlCard(newTask)
 }}
-
   class TaskManager{
     static id = 0
     static array = []
     constructor(taskName,description,assignedTo,dueDate,setStatus){
-      this.id = TaskManager.id++;
+       this.id = TaskManager.id++;
        this.taskName = taskName;
        this.description = description;
        this.assignedTo = assignedTo;
@@ -166,8 +166,8 @@ function submitFunction(event){
                             <p>${object.setStatus}</p>
                           </div>
                           <div class="card-footer bg-transparent border-light">
-                            <button type="submit" class="btn btn-success done-button">Mark as Done</button>
-                            <button type="submit" class="btn btn-danger delete-button">Delete</button>
+                            <button type="submit" class="btn btn-success done-button" >Mark as Done</button>
+                            <button type="submit" class="delete-button btn btn-danger" >Delete</button>
                           </div>
                       </div>`
       TaskManager.render(card)
@@ -178,14 +178,38 @@ function submitFunction(event){
       taskCardContainer.appendChild(card)
     }
 
-    static deleteTask(taskId){
-      newTasks = []
-    }
-    // ----doesnt work----
-  //  static deleteTask(card){
-  //     localStorage.removeItem(card.id++)
-  //     document.getElementById("modalBtnDel").removeChild();
-  //   }
-
   }
 
+
+// EXPERIMENTAL DELETE BUTTON STUFF
+// it doesn't work at all
+
+
+// id="del" data-id=${object.id}
+// id="done" data-id=${object.id}
+//   itemsContainer.addEventListener('click', function(e){}
+
+  function DeleteCard(taskId){
+    TaskManager.removeTasks(taskId)
+    displayCards()
+  }
+    document.getElementById("taskCardContainer").addEventListener("click", (e) => {
+
+      let element = e.target
+      if (element === e.currentTarget) {
+        return
+      }
+      if (element.nodeName === "button"&&element.className==="delete-button") {
+      removeTasks(Number(element.id))
+      displayCards()
+      TaskManager.saveToLocal(taskList)
+      }
+   })
+
+   function removeTasks(id) {
+    for(let i=0;i<taskList.length;i++) {
+      if (taskList[i].id===id){
+        taskList.splice(i,1)
+      }
+    }
+    }
